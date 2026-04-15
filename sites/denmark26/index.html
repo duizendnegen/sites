@@ -1,138 +1,581 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scroll-smooth" lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Samsø Trip — Denmark 2026</title>
+  <title>Samsø Trip — May 10–13, 2025</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Fonts: Manrope (headline) + Inter (body) + Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-container":      "#d4ab7b",
+            "surface":                    "#f9faf8",
+            "outline-variant":            "#c1c8c3",
+            "primary-fixed":              "#c8ead8",
+            "primary":                    "#163428",
+            "on-error":                   "#ffffff",
+            "on-secondary-container":     "#4c6876",
+            "surface-container-highest":  "#e2e3e1",
+            "secondary-container":        "#c9e7f7",
+            "error-container":            "#ffdad6",
+            "on-secondary":               "#ffffff",
+            "surface-variant":            "#e2e3e1",
+            "tertiary-fixed-dim":         "#eabf8d",
+            "on-secondary-fixed":         "#001f2a",
+            "outline":                    "#727974",
+            "error":                      "#ba1a1a",
+            "surface-tint":               "#466557",
+            "inverse-on-surface":         "#f0f1ef",
+            "surface-container-low":      "#f3f4f2",
+            "on-primary-container":       "#99baa9",
+            "inverse-primary":            "#adcebd",
+            "on-background":              "#191c1b",
+            "surface-bright":             "#f9faf8",
+            "tertiary-fixed":             "#ffddb7",
+            "on-error-container":         "#93000a",
+            "on-primary-fixed-variant":   "#2f4d40",
+            "secondary-fixed":            "#c9e7f7",
+            "on-tertiary-fixed":          "#2a1700",
+            "on-surface-variant":         "#424844",
+            "surface-dim":                "#d9dad8",
+            "on-secondary-fixed-variant": "#2f4a57",
+            "secondary":                  "#466270",
+            "surface-container-high":     "#e7e8e6",
+            "tertiary":                   "#422904",
+            "inverse-surface":            "#2e3130",
+            "primary-fixed-dim":          "#adcebd",
+            "primary-container":          "#2d4b3e",
+            "tertiary-container":         "#5c3f18",
+            "on-surface":                 "#191c1b",
+            "surface-container-lowest":   "#ffffff",
+            "secondary-fixed-dim":        "#aecbda",
+            "on-primary":                 "#ffffff",
+            "surface-container":          "#edeeec",
+            "background":                 "#f9faf8",
+            "on-tertiary":                "#ffffff",
+            "on-primary-fixed":           "#012116",
+            "on-tertiary-fixed-variant":  "#5e411a"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg":      "0.25rem",
+            "xl":      "0.5rem",
+            "full":    "0.75rem"
+          },
+          fontFamily: {
+            "headline": ["Manrope"],
+            "body":     ["Inter"],
+            "label":    ["Inter"]
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --sand:   #f5f0e8;
-      --sea:    #2a6496;
-      --sea-lt: #3a85c9;
-      --text:   #1a1a1a;
-      --muted:  #666;
-      --rule:   #d8cfc0;
-      --max:    720px;
-    }
-
-    body {
-      font-family: Georgia, 'Times New Roman', serif;
-      background: var(--sand);
-      color: var(--text);
-      line-height: 1.75;
-      padding: 2rem 1.25rem 4rem;
-    }
-
-    header {
-      max-width: var(--max);
-      margin: 0 auto 3rem;
-      border-bottom: 2px solid var(--rule);
-      padding-bottom: 1.5rem;
-    }
-
-    header .eyebrow {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--sea);
-      margin-bottom: 0.5rem;
-    }
-
-    header h1 {
-      font-size: clamp(1.8rem, 5vw, 2.8rem);
-      font-weight: normal;
-      letter-spacing: -0.01em;
-      line-height: 1.15;
-      color: var(--text);
-    }
-
-    header .meta {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-top: 0.6rem;
-    }
-
-    main {
-      max-width: var(--max);
-      margin: 0 auto;
-    }
-
-    h2 {
-      font-size: 1.4rem;
-      font-weight: normal;
-      margin: 2.5rem 0 0.75rem;
-      color: var(--sea);
-      border-bottom: 1px solid var(--rule);
-      padding-bottom: 0.35rem;
-    }
-
-    h3 {
-      font-size: 1.1rem;
-      font-weight: bold;
-      margin: 1.75rem 0 0.5rem;
-    }
-
-    p {
-      margin-bottom: 1rem;
-    }
-
-    ul, ol {
-      margin: 0.5rem 0 1rem 1.5rem;
-    }
-
-    li {
-      margin-bottom: 0.35rem;
-    }
-
-    blockquote {
-      border-left: 3px solid var(--sea-lt);
-      padding: 0.5rem 1rem;
-      margin: 1rem 0;
-      color: var(--muted);
-      font-style: italic;
-    }
-
-    a {
-      color: var(--sea);
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid var(--rule);
-      margin: 2rem 0;
-    }
-
-    footer {
-      max-width: var(--max);
-      margin: 3rem auto 0;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 0.75rem;
-      color: var(--muted);
-      text-align: center;
-      border-top: 1px solid var(--rule);
-      padding-top: 1rem;
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
   </style>
 </head>
-<body>
-  <header>
-    <p class="eyebrow">Denmark 2026 &mdash; Samsø</p>
-    <h1>Samsø Trip</h1>
-    <p class="meta"><!-- dates will go here --></p>
-  </header>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed">
 
-  <main>
-    <!-- content from samso-trip.md will be placed here -->
-    <p><em>Content coming soon.</em></p>
-  </main>
+<header class="bg-emerald-950/80 backdrop-blur-xl text-emerald-50 sticky top-0 z-50 transition-all duration-300">
+  <nav class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+    <div class="font-headline text-xl font-bold tracking-tighter text-emerald-50">Samsø Guide</div>
+    <ul class="hidden md:flex items-center gap-8 font-label tracking-tight text-sm font-bold uppercase">
+      <li><a class="text-emerald-300 border-b-2 border-amber-200 pb-1" href="#overview">Overview</a></li>
+      <li><a class="text-emerald-50/70 hover:text-emerald-50 transition-colors" href="#itinerary">Itinerary</a></li>
+      <li><a class="text-emerald-50/70 hover:text-emerald-50 transition-colors" href="#stays">Stays</a></li>
+      <li><a class="text-emerald-50/70 hover:text-emerald-50 transition-colors" href="#activities">Activities</a></li>
+      <li><a class="text-emerald-50/70 hover:text-emerald-50 transition-colors" href="#budget">Budget</a></li>
+    </ul>
+    <div class="flex items-center gap-4 text-emerald-50/70">
+      <span class="material-symbols-outlined cursor-pointer">map</span>
+    </div>
+  </nav>
+</header>
 
-  <footer>
-    <p>sites.eliandor.com &mdash; denmark26</p>
-  </footer>
+<!-- Hero -->
+<section class="relative w-full h-[870px] overflow-hidden bg-primary-container" id="overview">
+  <img
+    alt="Panoramic view of Samsø rolling hills and rapeseed fields"
+    class="absolute inset-0 w-full h-full object-cover opacity-80"
+    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvkiaTWhzxcJ5mNiiTyU8ewg1QOiWjDULGEknx_c6vCWGOg0p-qsQHwcace_hSRXC5ANOA7y5KwrMIC0c7KxYu1w84FVi7ASi4NRpn-IHTGdzibcFt8JVyBjXz4M3vkrBomxQsFBU6nwx2mTgW-SFO2EfyjOD6P45mNXdK-2aZIaATJjaSW-fUgxhK8ve_M6bYj-lHFDLgY0O-aKqaX4CZEMOO1QTEa459aNz29NQRkR-mCnjQARRvntYvJ2O052zB036xiaAe1RI"
+  />
+  <div class="absolute inset-0 bg-gradient-to-b from-primary/40 to-primary"></div>
+
+  <div class="relative z-10 h-full flex flex-col justify-end px-12 pb-24 max-w-7xl mx-auto">
+    <span class="font-label text-tertiary-fixed tracking-[0.2em] uppercase text-xs mb-4">May 10 — 13, 2025</span>
+    <h1 class="font-headline text-5xl md:text-8xl text-surface font-extrabold tracking-tighter leading-none mb-4">
+      Samsø,<br/>Denmark
+    </h1>
+    <p class="text-surface/60 text-base max-w-lg mb-8 font-label">
+      Berlin → Samsø → Middelfart &nbsp;·&nbsp; 2 travelers &nbsp;·&nbsp; Public transport &nbsp;·&nbsp; Bikes on island &nbsp;·&nbsp; Outdoor focus
+    </p>
+
+    <!-- Stat card anchored bottom-right -->
+    <div class="bg-surface-container-lowest p-8 md:p-10 absolute -bottom-10 right-12 max-w-sm shadow-sm border-l-4 border-primary">
+      <div class="grid grid-cols-2 gap-8">
+        <div>
+          <p class="font-label text-[10px] uppercase tracking-widest text-outline mb-1">Travelers</p>
+          <p class="font-headline text-2xl font-bold text-primary">02</p>
+        </div>
+        <div>
+          <p class="font-label text-[10px] uppercase tracking-widest text-outline mb-1">Nights</p>
+          <p class="font-headline text-2xl font-bold text-primary">03</p>
+        </div>
+        <div class="col-span-2 border-t border-outline-variant pt-4 mt-2">
+          <p class="font-label text-[10px] uppercase tracking-widest text-outline mb-1">Route</p>
+          <p class="font-body text-sm font-semibold text-secondary">Berlin → Samsø → Middelfart</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="mt-32 max-w-7xl mx-auto px-12 pb-32">
+
+  <!-- Itinerary -->
+  <section class="mb-32" id="itinerary">
+    <div class="flex flex-col md:flex-row gap-16">
+
+      <div class="md:w-1/3">
+        <h2 class="font-headline text-4xl font-bold tracking-tight text-primary sticky top-24">The<br/>Itinerary</h2>
+        <p class="mt-6 text-on-surface-variant leading-relaxed text-sm">Four days from Berlin to Middelfart — north-island hiking, full-island cycling, farm-fresh produce, and the Kattegat at every turn.</p>
+      </div>
+
+      <div class="md:w-2/3 space-y-12">
+
+        <!-- Day 1 — May 10 -->
+        <div class="flex gap-8">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-headline font-bold shrink-0">10</div>
+            <div class="flex-grow w-px bg-outline-variant opacity-30 my-4"></div>
+          </div>
+          <div class="pb-8 border-b border-outline-variant/20 w-full">
+            <span class="font-label text-xs uppercase tracking-widest text-tertiary">Saturday · Arrival</span>
+            <h3 class="font-headline text-2xl font-bold mt-1">Berlin → Samsø</h3>
+            <div class="mt-3 space-y-2 text-on-surface-variant text-sm leading-relaxed">
+              <p>Depart Berlin Hbf early (~06:00–07:00) by ICE/IC toward Hamburg, then Hamburg → Aarhus by train (DSB / Interrail).</p>
+              <p>Aarhus → Sælvig harbour by fast ferry (Samsø Rederi express from Dokk1 pier, ~1h crossing). Ferries run roughly every 2h, 06:00–20:00; book in advance at tilsamsoe.dk.</p>
+              <p>Pick up pre-booked bikes at Sælvig harbour (Ø-Hjul e-bikes or Samsø Cykler). Bike to accommodation (~8–15km). Evening: settle in, dinner at or near accommodation.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 2 — May 11 -->
+        <div class="flex gap-8">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed-variant font-headline font-bold shrink-0">11</div>
+            <div class="flex-grow w-px bg-outline-variant opacity-30 my-4"></div>
+          </div>
+          <div class="pb-8 border-b border-outline-variant/20 w-full">
+            <span class="font-label text-xs uppercase tracking-widest text-tertiary">Sunday · Hiking</span>
+            <h3 class="font-headline text-2xl font-bold mt-1">Nordby Bakker &amp; Issehoved</h3>
+            <div class="mt-3 space-y-2 text-on-surface-variant text-sm leading-relaxed">
+              <p>Full hiking day in the north-island hills.</p>
+              <ul class="list-disc list-inside space-y-1 ml-2">
+                <li><strong class="text-on-surface">Route A (18km loop):</strong> Nordby → Nordby Church → Møgelskår → west coast cliffs → Ballebjerg (64m lookout) → Pelkeshøj → Issehoved (northernmost tip) → east coast beach → Nordby</li>
+                <li><strong class="text-on-surface">Route B (11km loop):</strong> Ballebjerg → Issehoved → east coast beach → Nordby (accessible, few short steep climbs)</li>
+              </ul>
+              <p>Lunch on the hills or in Nordby village. Evening: Nordby Kro restaurant or Nordby 13 brasserie.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 3 — May 12 -->
+        <div class="flex gap-8">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed-variant font-headline font-bold shrink-0">12</div>
+            <div class="flex-grow w-px bg-outline-variant opacity-30 my-4"></div>
+          </div>
+          <div class="pb-8 border-b border-outline-variant/20 w-full">
+            <span class="font-label text-xs uppercase tracking-widest text-tertiary">Monday · Cycling</span>
+            <h3 class="font-headline text-2xl font-bold mt-1">Cycling the Island + Stavns Fjord</h3>
+            <div class="mt-3 space-y-2 text-on-surface-variant text-sm leading-relaxed">
+              <p>Full cycling day across the island. Suggested loop: Sælvig → Havvejen north → Langør (Stavns Fjord views, birdlife) → Nordby Hede heath → Onsbjerg → Tranebjerg → Ballen harbour.</p>
+              <p>Stops: farm roadside stalls for asparagus (peak season), Samsø Madsnedkeri (old barn restaurant), Røgeriet for smoked fish at Ballen. Optional detour: Sams Island Distillery in Brundby (gin, rum, local spirits).</p>
+              <p>Evening: Ballen harbour sunset drinks; dinner at Restaurant Dokken (sea views) or Røgeriet.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 4 — May 13 -->
+        <div class="flex gap-8">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-headline font-bold shrink-0">13</div>
+            <div class="w-px h-8 bg-outline-variant opacity-30 my-4"></div>
+          </div>
+          <div class="w-full">
+            <span class="font-label text-xs uppercase tracking-widest text-tertiary">Tuesday · Departure</span>
+            <h3 class="font-headline text-2xl font-bold mt-1">Morning Hike → Middelfart</h3>
+            <div class="mt-3 space-y-2 text-on-surface-variant text-sm leading-relaxed">
+              <p>Light morning activity: beach walk, Besser Rev coastal path, or Brattingsborg forest trail.</p>
+              <p>Ferry from Sælvig → Hou (Jutland) or Ballen → Kalundborg (Zealand), then train connection south to Middelfart. Arrive by evening.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Accommodation -->
+  <section class="mb-32" id="stays">
+    <h2 class="font-headline text-4xl font-bold tracking-tight text-primary mb-3">Where to Stay</h2>
+    <p class="text-on-surface-variant text-sm mb-12 max-w-xl">All options for 2 people sharing. Book early — May is early season and the island is small. Bikes can be pre-booked to meet you at Sælvig harbour.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+
+      <!-- 1: Nordby Kro -->
+      <div class="bg-surface-container-lowest p-6 flex flex-col h-full border-t-2 border-primary-fixed transition-transform hover:scale-[1.02]">
+        <span class="font-label text-[10px] uppercase tracking-widest text-outline">Nordby · North island</span>
+        <h4 class="font-headline font-bold text-lg mt-1">Nordby Kro</h4>
+        <p class="text-xs text-on-surface-variant mt-2 flex-grow">Classic Danish inn. Breakfast buffet with local produce, on-site restaurant and bar. Best hiking access — Ballebjerg 25-min walk.</p>
+        <div class="mt-6 pt-4 border-t border-outline-variant/20">
+          <p class="font-label text-[10px] text-outline">~10km from Sælvig · B&amp;B/Inn</p>
+          <p class="font-headline font-bold text-primary mt-1">€€</p>
+          <a class="text-[10px] text-secondary underline font-label" href="https://nordbykro.dk">nordbykro.dk</a>
+        </div>
+      </div>
+
+      <!-- 2: Rum og Rooms -->
+      <div class="bg-surface-container-lowest p-6 flex flex-col h-full border-t-2 border-secondary-container transition-transform hover:scale-[1.02]">
+        <span class="font-label text-[10px] uppercase tracking-widest text-outline">Brundby · Mid-island</span>
+        <h4 class="font-headline font-bold text-lg mt-1">Rum og Rooms</h4>
+        <p class="text-xs text-on-surface-variant mt-2 flex-grow">Food-forward farmhouse guesthouse. Communal dinners, local organic menu, homemade breakfasts. Email to confirm May availability.</p>
+        <div class="mt-6 pt-4 border-t border-outline-variant/20">
+          <p class="font-label text-[10px] text-outline">~8km from Sælvig · Guesthouse</p>
+          <p class="font-headline font-bold text-primary mt-1">€€</p>
+          <a class="text-[10px] text-secondary underline font-label" href="https://rumogrooms.dk">rumogrooms.dk</a>
+        </div>
+      </div>
+
+      <!-- 3: Vesborg Fyr (highlighted) -->
+      <div class="bg-primary text-surface p-6 flex flex-col h-full border-t-2 border-tertiary-fixed transition-transform hover:scale-[1.02]">
+        <span class="font-label text-[10px] uppercase tracking-widest text-primary-fixed-dim">South-west · Lighthouse</span>
+        <h4 class="font-headline font-bold text-lg mt-1">Vesborg Fyr</h4>
+        <p class="text-xs text-primary-fixed-dim mt-2 flex-grow">1858 lighthouse apartments. Sea views over Samsø Strait toward Funen, Zealand and Jutland. 50m to water. Most dramatic setting.</p>
+        <div class="mt-6 pt-4 border-t border-primary-container">
+          <p class="font-label text-[10px] text-primary-fixed-dim">~15km from Sælvig · Apt</p>
+          <p class="font-headline font-bold text-tertiary-fixed mt-1">€€€</p>
+          <a class="text-[10px] text-tertiary-fixed-dim underline font-label" href="https://vesborgfyr.dk">vesborgfyr.dk</a>
+        </div>
+      </div>
+
+      <!-- 4: Yduns Have -->
+      <div class="bg-surface-container-lowest p-6 flex flex-col h-full border-t-2 border-outline-variant transition-transform hover:scale-[1.02]">
+        <span class="font-label text-[10px] uppercase tracking-widest text-outline">Central · Near Stavns Fjord</span>
+        <h4 class="font-headline font-bold text-lg mt-1">Yduns Have</h4>
+        <p class="text-xs text-on-surface-variant mt-2 flex-grow">Rustic wooden cabin on working organic farm. 100+ varieties of vegetables. Farm shop on site. Shared kitchen. Genuinely primitive.</p>
+        <div class="mt-6 pt-4 border-t border-outline-variant/20">
+          <p class="font-label text-[10px] text-outline">~8km from Sælvig · Farm cabin</p>
+          <p class="font-headline font-bold text-primary mt-1">€</p>
+          <a class="text-[10px] text-secondary underline font-label" href="https://ydunshavesamsoe.dk">ydunshavesamsø.dk</a>
+        </div>
+      </div>
+
+      <!-- 5: Sælvigbugtens Camping Glamping -->
+      <div class="bg-surface-container-lowest p-6 flex flex-col h-full border-t-2 border-secondary-fixed-dim transition-transform hover:scale-[1.02]">
+        <span class="font-label text-[10px] uppercase tracking-widest text-outline">Sælvig Bay · Glamping</span>
+        <h4 class="font-headline font-bold text-lg mt-1">Sælvigbugtens</h4>
+        <p class="text-xs text-on-surface-variant mt-2 flex-grow">19m² Lotus Belle tent on wooden platform. Box-spring beds, gas grill, fridge, private terrace. Walking distance from ferry. Wake up to the Kattegat.</p>
+        <div class="mt-6 pt-4 border-t border-outline-variant/20">
+          <p class="font-label text-[10px] text-outline">Ferry-side · DKK 680–835/night</p>
+          <p class="font-headline font-bold text-primary mt-1">€</p>
+          <a class="text-[10px] text-secondary underline font-label" href="https://saelvigbugtens-camping.dk">saelvigbugtens-camping.dk</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Map + Activities bento (map #map div populated by Leaflet JS below) -->
+  <section class="mb-32 grid grid-cols-1 lg:grid-cols-12 gap-8" id="activities">
+
+    <!-- Map -->
+    <div class="lg:col-span-7 bg-surface-container rounded-xl overflow-hidden relative min-h-[520px]">
+      <div id="map" class="absolute inset-0 w-full h-full"></div>
+      <!-- Coordinate badge -->
+      <div class="absolute top-4 left-4 bg-surface-container-lowest/90 backdrop-blur-sm p-3 shadow-sm border-l-2 border-primary z-[400]">
+        <p class="font-label text-[10px] tracking-widest uppercase mb-1">Coordinates</p>
+        <p class="font-mono text-xs">55.87° N, 10.58° E</p>
+      </div>
+      <!-- Legend -->
+      <div class="absolute bottom-4 left-4 bg-surface-container-lowest/90 backdrop-blur-sm p-3 shadow-sm z-[400] space-y-1.5">
+        <p class="font-label text-[10px] uppercase tracking-widest text-outline mb-2">Legend</p>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-blue-500 inline-block shrink-0"></span><span class="text-[10px] font-label">Ferry terminal</span></div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-green-600 inline-block shrink-0"></span><span class="text-[10px] font-label">Hiking</span></div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-amber-500 inline-block shrink-0"></span><span class="text-[10px] font-label">Food &amp; drink</span></div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-purple-500 inline-block shrink-0"></span><span class="text-[10px] font-label">Accommodation</span></div>
+      </div>
+    </div>
+
+    <!-- Activities list -->
+    <div class="lg:col-span-5 space-y-6">
+      <h2 class="font-headline text-4xl font-bold tracking-tight text-primary">Points of<br/>Interest</h2>
+
+      <div class="space-y-4">
+
+        <div class="bg-surface-container-low p-6 flex items-start gap-4">
+          <span class="material-symbols-outlined text-secondary pt-1 shrink-0">hiking</span>
+          <div>
+            <h5 class="font-headline font-bold">Nordby Bakker &amp; Issehoved</h5>
+            <p class="text-sm text-on-surface-variant mt-1">11–18km loops through glacial valleys and west coast cliffs. Ballebjerg lookout tower at 64m — the highest point on the island.</p>
+          </div>
+        </div>
+
+        <div class="bg-surface-container-low p-6 flex items-start gap-4">
+          <span class="material-symbols-outlined text-secondary pt-1 shrink-0">pedal_bike</span>
+          <div>
+            <h5 class="font-headline font-bold">Island Cycling Routes</h5>
+            <p class="text-sm text-on-surface-variant mt-1">Full island loop (~60km) or Stavns Fjord circuit. E-bikes from Ø-Hjul or Samsø Cykler at Sælvig harbour. Asparagus farm stalls en route.</p>
+          </div>
+        </div>
+
+        <div class="bg-surface-container-low p-6 flex items-start gap-4">
+          <span class="material-symbols-outlined text-secondary pt-1 shrink-0">restaurant</span>
+          <div>
+            <h5 class="font-headline font-bold">Gastronomy</h5>
+            <p class="text-sm text-on-surface-variant mt-1">Nordby Kro, Nordby 13, Røgeriet smoked fish, Samsø Madsnedkeri, Restaurant Dokken. May = peak asparagus, early strawberries, rhubarb.</p>
+          </div>
+        </div>
+
+        <div class="bg-surface-container-low p-6 flex items-start gap-4">
+          <span class="material-symbols-outlined text-secondary pt-1 shrink-0">liquor</span>
+          <div>
+            <h5 class="font-headline font-bold">Sams Island Distillery</h5>
+            <p class="text-sm text-on-surface-variant mt-1">Gin, rum, vodka and local snaps in Brundby. Founded 2017. Optional day-3 detour (~DKK 100–150/person for a tasting).</p>
+          </div>
+        </div>
+
+        <div class="bg-surface-container-low p-6 flex items-start gap-4">
+          <span class="material-symbols-outlined text-secondary pt-1 shrink-0">sailing</span>
+          <div>
+            <h5 class="font-headline font-bold">Seal Safari &amp; Stavns Fjord</h5>
+            <p class="text-sm text-on-surface-variant mt-1">Old wooden boat M/S Tunø from Langør. Stavns Fjord birdlife lagoon and the Energy Academy in Tranebjerg (~DKK 150–200).</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Budget -->
+  <section class="mb-32" id="budget">
+    <div class="bg-tertiary-container p-12 rounded-xl">
+      <div class="max-w-4xl mx-auto">
+
+        <h2 class="font-headline text-3xl font-bold text-on-tertiary-container mb-1">Budget Estimate</h2>
+        <p class="text-on-tertiary-container/60 text-sm mb-10">Per person · DKK · May = early/low season &nbsp;·&nbsp; 1 EUR ≈ 7.5 DKK</p>
+
+        <!-- Travel -->
+        <h3 class="font-label text-xs uppercase tracking-widest text-on-tertiary-container/70 mb-4">Travel costs</h3>
+        <div class="overflow-x-auto mb-12">
+          <table class="w-full text-left text-sm">
+            <thead>
+              <tr class="border-b border-on-tertiary-container/20">
+                <th class="py-3 font-label text-[10px] uppercase tracking-widest text-on-tertiary-container/60 pr-8">Leg</th>
+                <th class="py-3 font-label text-[10px] uppercase tracking-widest text-on-tertiary-container/60 text-right whitespace-nowrap">Per person</th>
+                <th class="py-3 font-label text-[10px] uppercase tracking-widest text-on-tertiary-container/60 pl-8">Notes</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-on-tertiary-container/10">
+              <tr>
+                <td class="py-3 pr-8">Berlin → Aarhus (train)</td>
+                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">DKK 600–900</td>
+                <td class="py-3 pl-8 text-on-tertiary-container/60">Book early via DB/DSB; cheaper with Interrail</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-8">Aarhus → Sælvig (ferry)</td>
+                <td class="py-3 text-right font-headline font-bold">DKK 104</td>
+                <td class="py-3 pl-8 text-on-tertiary-container/60">Foot passenger, high season rate</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-8">Exit ferry (Hou or Kalundborg)</td>
+                <td class="py-3 text-right font-headline font-bold">DKK 104</td>
+                <td class="py-3 pl-8 text-on-tertiary-container/60">Foot passenger</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-8">Train → Middelfart (DSB)</td>
+                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">DKK 150–250</td>
+                <td class="py-3 pl-8 text-on-tertiary-container/60">Hou or Kalundborg → Middelfart</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Scenarios -->
+        <h3 class="font-label text-xs uppercase tracking-widest text-on-tertiary-container/70 mb-4">Total scenarios — 3 nights per person</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left">
+            <thead>
+              <tr class="border-b border-on-tertiary-container/20">
+                <th class="py-4 font-label text-[10px] uppercase tracking-widest text-on-tertiary-container/60">Tier</th>
+                <th class="py-4 font-label text-[10px] uppercase tracking-widest text-on-tertiary-container/60">Accommodation</th>
+                <th class="py-4 font-label text-[10px] uppercase tracking-widest text-on-tertiary-container/60">Bike</th>
+                <th class="py-4 font-label text-[10px] uppercase tracking-widest text-on-tertiary-container/60 text-right">Total / person</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-on-tertiary-container/10">
+              <tr>
+                <td class="py-5 font-headline font-bold">Budget</td>
+                <td class="py-5 text-sm text-on-tertiary-container/80">Yduns Have cabins</td>
+                <td class="py-5 text-sm text-on-tertiary-container/80">Regular bike</td>
+                <td class="py-5 font-headline font-bold text-right whitespace-nowrap">~DKK 3,500–4,500</td>
+              </tr>
+              <tr class="bg-on-tertiary-container/5">
+                <td class="py-5 font-headline font-bold">Mid-range</td>
+                <td class="py-5 text-sm text-on-tertiary-container/80">Nordby Kro</td>
+                <td class="py-5 text-sm text-on-tertiary-container/80">E-bike</td>
+                <td class="py-5 font-headline font-bold text-right whitespace-nowrap">~DKK 5,500–7,000</td>
+              </tr>
+              <tr>
+                <td class="py-5 font-headline font-bold">Comfortable</td>
+                <td class="py-5 text-sm text-on-tertiary-container/80">Vesborg Fyr</td>
+                <td class="py-5 text-sm text-on-tertiary-container/80">E-bike</td>
+                <td class="py-5 font-headline font-bold text-right whitespace-nowrap">~DKK 7,000–9,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Links -->
+  <section class="mb-16">
+    <h2 class="font-headline text-4xl font-bold tracking-tight text-primary mb-10">Key Links</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+      <div class="bg-surface-container-low p-5">
+        <p class="font-label text-[10px] uppercase tracking-widest text-outline mb-1">Ferry · Aarhus → Sælvig</p>
+        <p class="font-headline font-bold text-sm mb-1">Samsø Rederi</p>
+        <a class="text-secondary text-xs underline" href="https://tilsamsoe.dk">tilsamsoe.dk</a>
+      </div>
+
+      <div class="bg-surface-container-low p-5">
+        <p class="font-label text-[10px] uppercase tracking-widest text-outline mb-1">Ferry · Kalundborg → Ballen</p>
+        <p class="font-headline font-bold text-sm mb-1">Samsølinjen</p>
+        <a class="text-secondary text-xs underline" href="https://samsoelinjen.dk">samsoelinjen.dk</a>
+      </div>
+
+      <div class="bg-surface-container-low p-5">
+        <p class="font-label text-[10px] uppercase tracking-widest text-outline mb-1">Tourism</p>
+        <p class="font-headline font-bold text-sm mb-1">VisitSamsø</p>
+        <a class="text-secondary text-xs underline" href="https://visitsamsoe.dk">visitsamsoe.dk</a>
+      </div>
+
+      <div class="bg-surface-container-low p-5">
+        <p class="font-label text-[10px] uppercase tracking-widest text-outline mb-1">E-bike rental</p>
+        <p class="font-headline font-bold text-sm mb-1">Ø-Hjul</p>
+        <a class="text-secondary text-xs underline" href="https://oe-hjul.dk">oe-hjul.dk</a>
+        <p class="text-[10px] text-on-surface-variant mt-1">Self-service at Sælvig; range min. 65km</p>
+      </div>
+
+      <div class="bg-surface-container-low p-5">
+        <p class="font-label text-[10px] uppercase tracking-widest text-outline mb-1">Bike rental</p>
+        <p class="font-headline font-bold text-sm mb-1">Samsø Cykler</p>
+        <p class="text-xs text-on-surface-variant">Regular + e-bikes delivered to harbour. Luggage transport available.</p>
+      </div>
+
+      <div class="bg-surface-container-low p-5">
+        <p class="font-label text-[10px] uppercase tracking-widest text-outline mb-1">Telebus</p>
+        <p class="font-headline font-bold text-sm mb-1">Samsø Bus</p>
+        <a class="text-secondary text-xs underline" href="tel:+4588448388">+45 88 44 83 88</a>
+        <p class="text-[10px] text-on-surface-variant mt-1">Book 2h in advance; 45min if arriving by ferry</p>
+      </div>
+
+      <div class="bg-surface-container-low p-5">
+        <p class="font-label text-[10px] uppercase tracking-widest text-outline mb-1">Danish trains</p>
+        <p class="font-headline font-bold text-sm mb-1">DSB</p>
+        <a class="text-secondary text-xs underline" href="https://dsb.dk">dsb.dk</a>
+      </div>
+
+      <div class="bg-surface-container-low p-5">
+        <p class="font-label text-[10px] uppercase tracking-widest text-outline mb-1">Hiking maps</p>
+        <p class="font-headline font-bold text-sm mb-1">Alltrails / VisitSamsø leaflets</p>
+        <p class="text-[10px] text-on-surface-variant">Free printed leaflets at VisitSamsø, Tranebjerg</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-stone-100 text-stone-800 border-t border-stone-200">
+  <div class="flex flex-col md:flex-row justify-between items-center px-12 py-8 w-full max-w-7xl mx-auto">
+    <div class="font-label text-xs tracking-widest uppercase text-stone-500">
+      sites.eliandor.com &mdash; denmark26
+    </div>
+    <div class="flex gap-8 mt-4 md:mt-0 font-label text-xs tracking-widest uppercase">
+      <a class="text-stone-500 hover:text-emerald-700 transition-colors" href="https://tilsamsoe.dk">Ferries</a>
+      <a class="text-stone-500 hover:text-emerald-700 transition-colors" href="https://oe-hjul.dk">Bike Rental</a>
+      <a class="text-stone-500 hover:text-emerald-700 transition-colors" href="https://visitsamsoe.dk">Tourist Info</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  (function () {
+    const map = L.map('map', { scrollWheelZoom: false }).setView([55.875, 10.575], 11);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+
+    function pin(lat, lng, color, title, note) {
+      L.circleMarker([lat, lng], {
+        radius: 8, fillColor: color,
+        color: '#fff', weight: 2, opacity: 1, fillOpacity: 0.9
+      }).bindPopup(
+        '<strong>' + title + '</strong>' +
+        (note ? '<br><span style="font-size:0.78em;color:#555">' + note + '</span>' : '')
+      ).addTo(map);
+    }
+
+    // Ferry terminals — blue
+    pin(55.835, 10.583, '#3b82f6', 'Sælvig Harbour',          'Ferry from Aarhus · Bike pickup');
+    pin(55.821, 10.648, '#3b82f6', 'Ballen Harbour',           'Ferry to Kalundborg · Røgeriet');
+
+    // Hiking — green
+    pin(55.921, 10.532, '#16a34a', 'Nordby',                   'Village · Nordby Kro · Nordby 13');
+    pin(55.955, 10.512, '#16a34a', 'Issehoved',                'Northernmost tip · sea views');
+    pin(55.912, 10.533, '#16a34a', 'Ballebjerg',               '64m highest point · lookout tower');
+    pin(55.858, 10.657, '#16a34a', 'Stavns Fjord / Langør',    'Birdlife lagoon · seal safari');
+
+    // Food & drink — amber
+    pin(55.820, 10.649, '#f59e0b', 'Røgeriet',                 'Smoked fish · Ballen harbour');
+    pin(55.855, 10.600, '#f59e0b', 'Tranebjerg',               'Main town · Energy Academy');
+    pin(55.893, 10.568, '#f59e0b', 'Sams Island Distillery',   'Brundby · gin, rum, local snaps');
+
+    // Accommodation — purple
+    pin(55.799, 10.518, '#8b5cf6', 'Vesborg Fyr',              '1858 lighthouse apartments');
+    pin(55.875, 10.567, '#8b5cf6', 'Yduns Have',               'Organic farm cabins');
+    pin(55.897, 10.572, '#8b5cf6', 'Rum og Rooms',             'Farmhouse guesthouse · Brundby');
+    pin(55.835, 10.584, '#8b5cf6', 'Sælvigbugtens Camping',    'Glamping tent · ferry-side');
+  })();
+</script>
+
 </body>
 </html>
