@@ -1,0 +1,62 @@
+[
+  {
+    "id": "nordby-kro",
+    "location": "Nordby · North island",
+    "name": "Nordby Kro",
+    "description": "Classic Danish inn. Breakfast buffet with local produce, on-site restaurant and bar. Best hiking access — Ballebjerg 25-min walk.",
+    "meta": "~10km from Sælvig · B&B/Inn",
+    "price": "€€",
+    "url": "https://nordbykro.dk",
+    "urlLabel": "nordbykro.dk",
+    "borderColor": "border-primary-fixed",
+    "featured": false
+  },
+  {
+    "id": "rum-og-rooms",
+    "location": "Brundby · Mid-island",
+    "name": "Rum og Rooms",
+    "description": "Food-forward farmhouse guesthouse. Communal dinners, local organic menu, homemade breakfasts. Email to confirm May availability.",
+    "meta": "~8km from Sælvig · Guesthouse",
+    "price": "€€",
+    "url": "https://rumogrooms.dk",
+    "urlLabel": "rumogrooms.dk",
+    "borderColor": "border-secondary-container",
+    "featured": false
+  },
+  {
+    "id": "vesborg-fyr",
+    "location": "South-west · Lighthouse",
+    "name": "Vesborg Fyr",
+    "description": "1858 lighthouse apartments. Sea views over Samsø Strait toward Funen, Zealand and Jutland. 50m to water. Most dramatic setting.",
+    "meta": "~15km from Sælvig · Apt",
+    "price": "€€€",
+    "url": "https://vesborgfyr.dk",
+    "urlLabel": "vesborgfyr.dk",
+    "borderColor": "border-tertiary-fixed",
+    "featured": true
+  },
+  {
+    "id": "yduns-have",
+    "location": "Central · Near Stavns Fjord",
+    "name": "Yduns Have",
+    "description": "Rustic wooden cabin on working organic farm. 100+ varieties of vegetables. Farm shop on site. Shared kitchen. Genuinely primitive.",
+    "meta": "~8km from Sælvig · Farm cabin",
+    "price": "€",
+    "url": "https://ydunshavesamsoe.dk",
+    "urlLabel": "ydunshavesamsø.dk",
+    "borderColor": "border-outline-variant",
+    "featured": false
+  },
+  {
+    "id": "saelvigbugtens",
+    "location": "Sælvig Bay · Glamping",
+    "name": "Sælvigbugtens",
+    "description": "19m² Lotus Belle tent on wooden platform. Box-spring beds, gas grill, fridge, private terrace. Walking distance from ferry. Wake up to the Kattegat.",
+    "meta": "Ferry-side · DKK 680–835/night",
+    "price": "€",
+    "url": "https://saelvigbugtens-camping.dk",
+    "urlLabel": "saelvigbugtens-camping.dk",
+    "borderColor": "border-secondary-fixed-dim",
+    "featured": false
+  }
+]
