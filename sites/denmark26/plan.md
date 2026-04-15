@@ -5,6 +5,15 @@
 
 ---
 
+## Site Design Notes
+
+- **Framework:** Tailwind CSS (CDN) with custom Material Design 3 color tokens; Manrope (headline) + Inter (body)
+- **Map:** Leaflet.js with OpenStreetMap tiles via Carto Positron (clean, desaturated basemap). Custom circle markers per location type (ferry, hiking, accommodation, etc.) using the MD3 color palette. `scrollWheelZoom: false` to avoid page scroll hijacking.
+- **Hero:** Full-bleed landscape image with gradient overlay; stat card anchored bottom-right
+- **Layout:** Sticky dark nav → hero → itinerary timeline → accommodation 5-up grid → map + activities bento → budget table → footer
+
+---
+
 ## Itinerary
 
 ### Day 1 — Saturday May 10: Berlin → Samsø
