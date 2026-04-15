@@ -1,138 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scroll-smooth" lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Samsø Trip — Denmark 2026</title>
+  <title>Samsø Trip — May 10–13, 2025</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Fonts: Manrope (headline) + Inter (body) + Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-container":      "#d4ab7b",
+            "surface":                    "#f9faf8",
+            "outline-variant":            "#c1c8c3",
+            "primary-fixed":              "#c8ead8",
+            "primary":                    "#163428",
+            "on-error":                   "#ffffff",
+            "on-secondary-container":     "#4c6876",
+            "surface-container-highest":  "#e2e3e1",
+            "secondary-container":        "#c9e7f7",
+            "error-container":            "#ffdad6",
+            "on-secondary":               "#ffffff",
+            "surface-variant":            "#e2e3e1",
+            "tertiary-fixed-dim":         "#eabf8d",
+            "on-secondary-fixed":         "#001f2a",
+            "outline":                    "#727974",
+            "error":                      "#ba1a1a",
+            "surface-tint":               "#466557",
+            "inverse-on-surface":         "#f0f1ef",
+            "surface-container-low":      "#f3f4f2",
+            "on-primary-container":       "#99baa9",
+            "inverse-primary":            "#adcebd",
+            "on-background":              "#191c1b",
+            "surface-bright":             "#f9faf8",
+            "tertiary-fixed":             "#ffddb7",
+            "on-error-container":         "#93000a",
+            "on-primary-fixed-variant":   "#2f4d40",
+            "secondary-fixed":            "#c9e7f7",
+            "on-tertiary-fixed":          "#2a1700",
+            "on-surface-variant":         "#424844",
+            "surface-dim":                "#d9dad8",
+            "on-secondary-fixed-variant": "#2f4a57",
+            "secondary":                  "#466270",
+            "surface-container-high":     "#e7e8e6",
+            "tertiary":                   "#422904",
+            "inverse-surface":            "#2e3130",
+            "primary-fixed-dim":          "#adcebd",
+            "primary-container":          "#2d4b3e",
+            "tertiary-container":         "#5c3f18",
+            "on-surface":                 "#191c1b",
+            "surface-container-lowest":   "#ffffff",
+            "secondary-fixed-dim":        "#aecbda",
+            "on-primary":                 "#ffffff",
+            "surface-container":          "#edeeec",
+            "background":                 "#f9faf8",
+            "on-tertiary":                "#ffffff",
+            "on-primary-fixed":           "#012116",
+            "on-tertiary-fixed-variant":  "#5e411a"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg":      "0.25rem",
+            "xl":      "0.5rem",
+            "full":    "0.75rem"
+          },
+          fontFamily: {
+            "headline": ["Manrope"],
+            "body":     ["Inter"],
+            "label":    ["Inter"]
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --sand:   #f5f0e8;
-      --sea:    #2a6496;
-      --sea-lt: #3a85c9;
-      --text:   #1a1a1a;
-      --muted:  #666;
-      --rule:   #d8cfc0;
-      --max:    720px;
-    }
-
-    body {
-      font-family: Georgia, 'Times New Roman', serif;
-      background: var(--sand);
-      color: var(--text);
-      line-height: 1.75;
-      padding: 2rem 1.25rem 4rem;
-    }
-
-    header {
-      max-width: var(--max);
-      margin: 0 auto 3rem;
-      border-bottom: 2px solid var(--rule);
-      padding-bottom: 1.5rem;
-    }
-
-    header .eyebrow {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--sea);
-      margin-bottom: 0.5rem;
-    }
-
-    header h1 {
-      font-size: clamp(1.8rem, 5vw, 2.8rem);
-      font-weight: normal;
-      letter-spacing: -0.01em;
-      line-height: 1.15;
-      color: var(--text);
-    }
-
-    header .meta {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-top: 0.6rem;
-    }
-
-    main {
-      max-width: var(--max);
-      margin: 0 auto;
-    }
-
-    h2 {
-      font-size: 1.4rem;
-      font-weight: normal;
-      margin: 2.5rem 0 0.75rem;
-      color: var(--sea);
-      border-bottom: 1px solid var(--rule);
-      padding-bottom: 0.35rem;
-    }
-
-    h3 {
-      font-size: 1.1rem;
-      font-weight: bold;
-      margin: 1.75rem 0 0.5rem;
-    }
-
-    p {
-      margin-bottom: 1rem;
-    }
-
-    ul, ol {
-      margin: 0.5rem 0 1rem 1.5rem;
-    }
-
-    li {
-      margin-bottom: 0.35rem;
-    }
-
-    blockquote {
-      border-left: 3px solid var(--sea-lt);
-      padding: 0.5rem 1rem;
-      margin: 1rem 0;
-      color: var(--muted);
-      font-style: italic;
-    }
-
-    a {
-      color: var(--sea);
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid var(--rule);
-      margin: 2rem 0;
-    }
-
-    footer {
-      max-width: var(--max);
-      margin: 3rem auto 0;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 0.75rem;
-      color: var(--muted);
-      text-align: center;
-      border-top: 1px solid var(--rule);
-      padding-top: 1rem;
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
   </style>
 </head>
-<body>
-  <header>
-    <p class="eyebrow">Denmark 2026 &mdash; Samsø</p>
-    <h1>Samsø Trip</h1>
-    <p class="meta"><!-- dates will go here --></p>
-  </header>
-
-  <main>
-    <!-- content from samso-trip.md will be placed here -->
-    <p><em>Content coming soon.</em></p>
-  </main>
-
-  <footer>
-    <p>sites.eliandor.com &mdash; denmark26</p>
-  </footer>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed">
 </body>
 </html>
