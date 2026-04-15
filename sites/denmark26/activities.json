@@ -1,0 +1,32 @@
+[
+  {
+    "id": "hiking",
+    "icon": "hiking",
+    "title": "Nordby Bakker &amp; Issehoved",
+    "description": "11–18km loops through glacial valleys and west coast cliffs. Ballebjerg lookout tower at 64m — the highest point on the island."
+  },
+  {
+    "id": "cycling",
+    "icon": "pedal_bike",
+    "title": "Island Cycling Routes",
+    "description": "Full island loop (~60km) or Stavns Fjord circuit. E-bikes from Ø-Hjul or Samsø Cykler at Sælvig harbour. Asparagus farm stalls en route."
+  },
+  {
+    "id": "gastronomy",
+    "icon": "restaurant",
+    "title": "Gastronomy",
+    "description": "Nordby Kro, Nordby 13, Røgeriet smoked fish, Samsø Madsnedkeri, Restaurant Dokken. May = peak asparagus, early strawberries, rhubarb."
+  },
+  {
+    "id": "distillery",
+    "icon": "liquor",
+    "title": "Sams Island Distillery",
+    "description": "Gin, rum, vodka and local snaps in Brundby. Founded 2017. Optional detour (~DKK 100–150/person for a tasting)."
+  },
+  {
+    "id": "seal-safari",
+    "icon": "sailing",
+    "title": "Seal Safari &amp; Stavns Fjord",
+    "description": "Old wooden boat M/S Tunø from Langør. Stavns Fjord birdlife lagoon and the Energy Academy in Tranebjerg (~DKK 150–200)."
+  }
+]

@@ -301,52 +301,30 @@
     <div class="lg:col-span-5 space-y-6">
       <h2 class="font-headline text-4xl font-bold tracking-tight text-primary">Points of<br/>Interest</h2>
 
-      <div class="space-y-4">
-
-        <div class="bg-surface-container-low p-6 flex items-start gap-4">
-          <span class="material-symbols-outlined text-secondary pt-1 shrink-0">hiking</span>
-          <div>
-            <h5 class="font-headline font-bold">Nordby Bakker &amp; Issehoved</h5>
-            <p class="text-sm text-on-surface-variant mt-1">11–18km loops through glacial valleys and west coast cliffs. Ballebjerg lookout tower at 64m — the highest point on the island.</p>
-          </div>
-        </div>
-
-        <div class="bg-surface-container-low p-6 flex items-start gap-4">
-          <span class="material-symbols-outlined text-secondary pt-1 shrink-0">pedal_bike</span>
-          <div>
-            <h5 class="font-headline font-bold">Island Cycling Routes</h5>
-            <p class="text-sm text-on-surface-variant mt-1">Full island loop (~60km) or Stavns Fjord circuit. E-bikes from Ø-Hjul or Samsø Cykler at Sælvig harbour. Asparagus farm stalls en route.</p>
-          </div>
-        </div>
-
-        <div class="bg-surface-container-low p-6 flex items-start gap-4">
-          <span class="material-symbols-outlined text-secondary pt-1 shrink-0">restaurant</span>
-          <div>
-            <h5 class="font-headline font-bold">Gastronomy</h5>
-            <p class="text-sm text-on-surface-variant mt-1">Nordby Kro, Nordby 13, Røgeriet smoked fish, Samsø Madsnedkeri, Restaurant Dokken. May = peak asparagus, early strawberries, rhubarb.</p>
-          </div>
-        </div>
-
-        <div class="bg-surface-container-low p-6 flex items-start gap-4">
-          <span class="material-symbols-outlined text-secondary pt-1 shrink-0">liquor</span>
-          <div>
-            <h5 class="font-headline font-bold">Sams Island Distillery</h5>
-            <p class="text-sm text-on-surface-variant mt-1">Gin, rum, vodka and local snaps in Brundby. Founded 2017. Optional day-3 detour (~DKK 100–150/person for a tasting).</p>
-          </div>
-        </div>
-
-        <div class="bg-surface-container-low p-6 flex items-start gap-4">
-          <span class="material-symbols-outlined text-secondary pt-1 shrink-0">sailing</span>
-          <div>
-            <h5 class="font-headline font-bold">Seal Safari &amp; Stavns Fjord</h5>
-            <p class="text-sm text-on-surface-variant mt-1">Old wooden boat M/S Tunø from Langør. Stavns Fjord birdlife lagoon and the Energy Academy in Tranebjerg (~DKK 150–200).</p>
-          </div>
-        </div>
-
+      <div class="space-y-4" id="activities-list">
+        <!-- Rendered by activities.json -->
       </div>
     </div>
 
   </section>
+
+  <script>
+    (function () {
+      fetch('activities.json')
+        .then(function (r) { return r.json(); })
+        .then(function (items) {
+          var list = document.getElementById('activities-list');
+          list.innerHTML = items.map(function (a) {
+            return '<div class="bg-surface-container-low p-6 flex items-start gap-4">'
+              + '<span class="material-symbols-outlined text-secondary pt-1 shrink-0">' + a.icon + '</span>'
+              + '<div>'
+              + '<h5 class="font-headline font-bold">' + a.title + '</h5>'
+              + '<p class="text-sm text-on-surface-variant mt-1">' + a.description + '</p>'
+              + '</div></div>';
+          }).join('');
+        });
+    })();
+  </script>
 
   <!-- Budget -->
   <section class="mb-32" id="budget">
