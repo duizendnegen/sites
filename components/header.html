@@ -1,0 +1,17 @@
+<!--
+  header.html — sticky glassmorphism nav
+  Requires: Tailwind config (primary, sage #9DD1A7), Manrope font (font-headline), Inter font (font-label)
+  Nav links: update hrefs and labels to match the page's section ids.
+  Active link: add `text-[#9DD1A7] border-b-2 border-[#9DD1A7] pb-1` to the current section anchor.
+-->
+<header class="bg-[#110E38]/80 backdrop-blur-xl text-white sticky top-0 z-[1000] transition-all duration-300">
+  <nav class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+    <div class="font-headline text-xl font-bold tracking-tighter text-white">Site Title</div>
+    <ul class="hidden md:flex items-center gap-8 font-label tracking-tight text-sm font-bold uppercase">
+      <li><a class="text-[#9DD1A7] border-b-2 border-[#9DD1A7] pb-1" href="#section-1">Section 1</a></li>
+      <li><a class="text-white/70 hover:text-white transition-colors" href="#section-2">Section 2</a></li>
+      <li><a class="text-white/70 hover:text-white transition-colors" href="#section-3">Section 3</a></li>
+      <li><a class="text-white/70 hover:text-white transition-colors" href="#section-4">Section 4</a></li>
+    </ul>
+  </nav>
+</header>

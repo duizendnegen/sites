@@ -1,0 +1,53 @@
+<!--
+  card.html — JSON-driven image card grid
+  Requires: Tailwind config (surface-container-lowest, surface-container-high, outline, on-surface-variant,
+            primary, secondary colors), Manrope font (font-headline), Inter font (font-label)
+  Data file: items.json alongside the HTML. Expected shape per item:
+    {
+      "id":       "slug",
+      "location": "Area · Region",
+      "name":     "Display name",
+      "description": "One or two sentences.",
+      "meta":     "Distance or type note",
+      "price":    "€ / €€ / €€€",
+      "url":      "https://...",
+      "urlLabel": "domain.com",
+      "image":    "https://..."   // optional — blank block rendered if absent
+    }
+  Place the section inside <main class="max-w-7xl mx-auto px-12">.
+-->
+
+<section class="mb-32" id="cards">
+  <h2 class="font-headline text-4xl font-bold tracking-tight text-primary mb-3">Section Title</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="card-grid">
+    <!-- Rendered by items.json -->
+  </div>
+</section>
+
+<script>
+  (function () {
+    fetch('items.json')
+      .then(function (r) { return r.json(); })
+      .then(function (items) {
+        var grid = document.getElementById('card-grid');
+        grid.innerHTML = items.map(function (a) {
+          var imgBlock = a.image
+            ? '<div class="aspect-[4/3] overflow-hidden bg-surface-container-high">'
+              + '<img src="' + a.image + '" alt="' + a.name + '" class="w-full h-full object-cover" loading="lazy" /></div>'
+            : '<div class="aspect-[4/3] bg-surface-container-high"></div>';
+
+          return '<div class="bg-surface-container-lowest flex flex-col transition-transform hover:scale-[1.02]">'
+            + imgBlock
+            + '<div class="p-6 flex flex-col flex-grow">'
+            + '<span class="font-label text-[10px] uppercase tracking-widest text-outline">' + a.location + '</span>'
+            + '<h4 class="font-headline font-bold text-lg mt-1">' + a.name + '</h4>'
+            + '<p class="text-xs text-on-surface-variant mt-2 flex-grow">' + a.description + '</p>'
+            + '<div class="mt-8">'
+            + '<p class="font-label text-[10px] text-outline">' + a.meta + '</p>'
+            + '<p class="font-headline font-bold text-primary mt-1">' + a.price + '</p>'
+            + '<a class="text-[10px] text-secondary underline font-label" href="' + a.url + '">' + a.urlLabel + '</a>'
+            + '</div></div></div>';
+        }).join('');
+      });
+  })();
+</script>

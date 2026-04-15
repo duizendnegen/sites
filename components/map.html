@@ -1,0 +1,57 @@
+<!--
+  map.html — full-width Leaflet map with legend and circleMarker pins
+  Requires in <head>: Leaflet CSS  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  Requires before </body>: Leaflet JS  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  Requires: Tailwind config (surface-container, surface-container-lowest, outline, primary colors), Inter font (font-label)
+  The legend rows and pin() calls are the only things to update per site.
+  Pin categories use plain hex colors — add/remove legend rows to match.
+-->
+
+<!-- Map container — place inside a <section> or directly in <main> -->
+<div class="relative h-[540px] bg-surface-container mb-16">
+  <div id="map" class="absolute inset-0 w-full h-full"></div>
+  <!-- Legend -->
+  <div class="absolute bottom-4 left-4 bg-surface-container-lowest/90 backdrop-blur-sm p-3 shadow-sm z-[400] space-y-1.5">
+    <p class="font-label text-[10px] uppercase tracking-widest text-outline mb-2">Legend</p>
+    <div class="flex items-center gap-2"><span class="w-3 h-3 bg-blue-500 inline-block shrink-0"></span><span class="text-[10px] font-label">Category A</span></div>
+    <div class="flex items-center gap-2"><span class="w-3 h-3 bg-green-600 inline-block shrink-0"></span><span class="text-[10px] font-label">Category B</span></div>
+    <div class="flex items-center gap-2"><span class="w-3 h-3 bg-amber-500 inline-block shrink-0"></span><span class="text-[10px] font-label">Category C</span></div>
+    <div class="flex items-center gap-2"><span class="w-3 h-3 bg-purple-500 inline-block shrink-0"></span><span class="text-[10px] font-label">Category D</span></div>
+  </div>
+</div>
+
+<!-- Leaflet init — place after Leaflet JS is loaded -->
+<script>
+  window.addEventListener('load', function () {
+    var map = L.map('map', { scrollWheelZoom: false }).setView([LAT, LNG], ZOOM);
+    map.invalidateSize();
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+
+    function pin(lat, lng, color, title, note) {
+      L.circleMarker([lat, lng], {
+        radius: 8, fillColor: color,
+        color: '#fff', weight: 2, opacity: 1, fillOpacity: 0.9
+      }).bindPopup(
+        '<strong>' + title + '</strong>' +
+        (note ? '<br><span style="font-size:0.78em;color:#555">' + note + '</span>' : '')
+      ).addTo(map);
+    }
+
+    // Category A — blue (#3b82f6)
+    pin(0.0000, 0.0000, '#3b82f6', 'Pin title', 'Optional note');
+
+    // Category B — green (#16a34a)
+    pin(0.0000, 0.0000, '#16a34a', 'Pin title', 'Optional note');
+
+    // Category C — amber (#f59e0b)
+    pin(0.0000, 0.0000, '#f59e0b', 'Pin title', 'Optional note');
+
+    // Category D — purple (#8b5cf6)
+    pin(0.0000, 0.0000, '#8b5cf6', 'Pin title', 'Optional note');
+  });
+</script>

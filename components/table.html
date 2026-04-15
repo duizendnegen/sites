@@ -1,0 +1,54 @@
+<!--
+  table.html — budget/cost breakdown table with highlighted total row
+  Requires: Tailwind config (surface-container, surface-container-high, on-surface, on-surface-variant colors),
+            Manrope font (font-headline), Inter font (font-label)
+  Three columns: Category (narrow label) · Item (description) · Amount (right-aligned, bold)
+  Last <tr> gets bg-surface-container-high for the total highlight.
+  Place the section inside <main class="max-w-7xl mx-auto px-12">.
+-->
+
+<section class="mb-32" id="budget">
+  <div class="bg-surface-container p-12">
+    <div class="max-w-4xl mx-auto">
+
+      <h2 class="font-headline text-3xl font-bold text-on-surface mb-1">Budget Estimate</h2>
+      <p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-8">Per person · mid-range estimate</p>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead>
+            <tr>
+              <th class="pb-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant pr-8 w-24">Category</th>
+              <th class="pb-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant pr-8">Item</th>
+              <th class="pb-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant text-right whitespace-nowrap">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="py-3 pr-8 text-on-surface-variant text-xs">Category</td>
+              <td class="py-3 pr-8">Item description</td>
+              <td class="py-3 text-right font-headline font-bold whitespace-nowrap">€00</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-8 text-on-surface-variant text-xs">Category</td>
+              <td class="py-3 pr-8">Item description</td>
+              <td class="py-3 text-right font-headline font-bold whitespace-nowrap">€00</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-8 text-on-surface-variant text-xs">Category</td>
+              <td class="py-3 pr-8">Item description</td>
+              <td class="py-3 text-right font-headline font-bold whitespace-nowrap">€00</td>
+            </tr>
+            <!-- Total row -->
+            <tr class="bg-surface-container-high">
+              <td class="py-4 pr-8 font-headline font-bold">Total</td>
+              <td class="py-4 pr-8 font-headline font-bold"></td>
+              <td class="py-4 text-right font-headline font-bold text-lg whitespace-nowrap">~€000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</section>
