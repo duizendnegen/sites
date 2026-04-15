@@ -225,8 +225,8 @@
   <section class="mb-32 grid grid-cols-1 lg:grid-cols-12 gap-8" id="activities">
 
     <!-- Map -->
-    <div class="lg:col-span-7 bg-surface-container rounded-xl overflow-hidden relative min-h-[520px]">
-      <div id="map" class="absolute inset-0 w-full h-full"></div>
+    <div class="lg:col-span-7 bg-surface-container rounded-xl relative min-h-[520px]">
+      <div id="map" class="absolute inset-0 w-full h-full" style="border-radius: inherit;"></div>
       <!-- Coordinate badge -->
       <div class="absolute top-4 left-4 bg-surface-container-lowest/90 backdrop-blur-sm p-3 shadow-sm border-l-2 border-primary z-[400]">
         <p class="font-label text-[10px] tracking-widest uppercase mb-1">Coordinates</p>
@@ -372,8 +372,9 @@
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-  (function () {
-    const map = L.map('map', { scrollWheelZoom: false }).setView([55.875, 10.575], 11);
+  window.addEventListener('load', function () {
+    var map = L.map('map', { scrollWheelZoom: false }).setView([55.875, 10.575], 11);
+    map.invalidateSize();
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -411,7 +412,7 @@
     pin(55.875, 10.567, '#8b5cf6', 'Yduns Have',               'Organic farm cabins');
     pin(55.897, 10.572, '#8b5cf6', 'Rum og Rooms',             'Farmhouse guesthouse · Brundby');
     pin(55.835, 10.584, '#8b5cf6', 'Sælvigbugtens Camping',    'Glamping tent · ferry-side');
-  })();
+  });
 </script>
 
 <!-- Tailwind safelist: classes used only in JS render functions -->
