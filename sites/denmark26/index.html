@@ -98,8 +98,8 @@
     <div class="font-headline text-xl font-bold tracking-tighter text-emerald-50">Samsø Guide</div>
     <ul class="hidden md:flex items-center gap-8 font-label tracking-tight text-sm font-bold uppercase">
       <li><a class="text-emerald-300 border-b-2 border-amber-200 pb-1" href="#overview">Overview</a></li>
-      <li><a class="text-emerald-50/70 hover:text-emerald-50 transition-colors" href="#itinerary">Itinerary</a></li>
       <li><a class="text-emerald-50/70 hover:text-emerald-50 transition-colors" href="#stays">Stays</a></li>
+      <li><a class="text-emerald-50/70 hover:text-emerald-50 transition-colors" href="#itinerary">Itinerary</a></li>
       <li><a class="text-emerald-50/70 hover:text-emerald-50 transition-colors" href="#activities">Activities</a></li>
       <li><a class="text-emerald-50/70 hover:text-emerald-50 transition-colors" href="#budget">Budget</a></li>
     </ul>
@@ -148,6 +148,48 @@
 </section>
 
 <main class="mt-32 max-w-7xl mx-auto px-12 pb-32">
+
+  <!-- Accommodation -->
+  <section class="mb-32" id="stays">
+    <h2 class="font-headline text-4xl font-bold tracking-tight text-primary mb-3">Where to Stay</h2>
+    <p class="text-on-surface-variant text-sm mb-12 max-w-xl">All options for 2 people sharing. Book early — May is early season and the island is small. Bikes can be pre-booked to meet you at Sælvig harbour.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4" id="accommodation-grid">
+      <!-- Rendered by accommodation.json -->
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      fetch('accommodation.json')
+        .then(function (r) { return r.json(); })
+        .then(function (items) {
+          var grid = document.getElementById('accommodation-grid');
+          grid.innerHTML = items.map(function (a) {
+            if (a.featured) {
+              return '<div class="bg-primary text-surface p-6 flex flex-col h-full border-t-2 ' + a.borderColor + ' transition-transform hover:scale-[1.02]">'
+                + '<span class="font-label text-[10px] uppercase tracking-widest text-primary-fixed-dim">' + a.location + '</span>'
+                + '<h4 class="font-headline font-bold text-lg mt-1">' + a.name + '</h4>'
+                + '<p class="text-xs text-primary-fixed-dim mt-2 flex-grow">' + a.description + '</p>'
+                + '<div class="mt-6 pt-4 border-t border-primary-container">'
+                + '<p class="font-label text-[10px] text-primary-fixed-dim">' + a.meta + '</p>'
+                + '<p class="font-headline font-bold text-tertiary-fixed mt-1">' + a.price + '</p>'
+                + '<a class="text-[10px] text-tertiary-fixed-dim underline font-label" href="' + a.url + '">' + a.urlLabel + '</a>'
+                + '</div></div>';
+            }
+            return '<div class="bg-surface-container-lowest p-6 flex flex-col h-full border-t-2 ' + a.borderColor + ' transition-transform hover:scale-[1.02]">'
+              + '<span class="font-label text-[10px] uppercase tracking-widest text-outline">' + a.location + '</span>'
+              + '<h4 class="font-headline font-bold text-lg mt-1">' + a.name + '</h4>'
+              + '<p class="text-xs text-on-surface-variant mt-2 flex-grow">' + a.description + '</p>'
+              + '<div class="mt-6 pt-4 border-t border-outline-variant/20">'
+              + '<p class="font-label text-[10px] text-outline">' + a.meta + '</p>'
+              + '<p class="font-headline font-bold text-primary mt-1">' + a.price + '</p>'
+              + '<a class="text-[10px] text-secondary underline font-label" href="' + a.url + '">' + a.urlLabel + '</a>'
+              + '</div></div>';
+          }).join('');
+        });
+    })();
+  </script>
 
   <!-- Itinerary -->
   <section class="mb-32" id="itinerary">
@@ -233,48 +275,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Accommodation -->
-  <section class="mb-32" id="stays">
-    <h2 class="font-headline text-4xl font-bold tracking-tight text-primary mb-3">Where to Stay</h2>
-    <p class="text-on-surface-variant text-sm mb-12 max-w-xl">All options for 2 people sharing. Book early — May is early season and the island is small. Bikes can be pre-booked to meet you at Sælvig harbour.</p>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4" id="accommodation-grid">
-      <!-- Rendered by accommodation.json -->
-    </div>
-  </section>
-
-  <script>
-    (function () {
-      fetch('accommodation.json')
-        .then(function (r) { return r.json(); })
-        .then(function (items) {
-          var grid = document.getElementById('accommodation-grid');
-          grid.innerHTML = items.map(function (a) {
-            if (a.featured) {
-              return '<div class="bg-primary text-surface p-6 flex flex-col h-full border-t-2 ' + a.borderColor + ' transition-transform hover:scale-[1.02]">'
-                + '<span class="font-label text-[10px] uppercase tracking-widest text-primary-fixed-dim">' + a.location + '</span>'
-                + '<h4 class="font-headline font-bold text-lg mt-1">' + a.name + '</h4>'
-                + '<p class="text-xs text-primary-fixed-dim mt-2 flex-grow">' + a.description + '</p>'
-                + '<div class="mt-6 pt-4 border-t border-primary-container">'
-                + '<p class="font-label text-[10px] text-primary-fixed-dim">' + a.meta + '</p>'
-                + '<p class="font-headline font-bold text-tertiary-fixed mt-1">' + a.price + '</p>'
-                + '<a class="text-[10px] text-tertiary-fixed-dim underline font-label" href="' + a.url + '">' + a.urlLabel + '</a>'
-                + '</div></div>';
-            }
-            return '<div class="bg-surface-container-lowest p-6 flex flex-col h-full border-t-2 ' + a.borderColor + ' transition-transform hover:scale-[1.02]">'
-              + '<span class="font-label text-[10px] uppercase tracking-widest text-outline">' + a.location + '</span>'
-              + '<h4 class="font-headline font-bold text-lg mt-1">' + a.name + '</h4>'
-              + '<p class="text-xs text-on-surface-variant mt-2 flex-grow">' + a.description + '</p>'
-              + '<div class="mt-6 pt-4 border-t border-outline-variant/20">'
-              + '<p class="font-label text-[10px] text-outline">' + a.meta + '</p>'
-              + '<p class="font-headline font-bold text-primary mt-1">' + a.price + '</p>'
-              + '<a class="text-[10px] text-secondary underline font-label" href="' + a.url + '">' + a.urlLabel + '</a>'
-              + '</div></div>';
-          }).join('');
-        });
-    })();
-  </script>
 
   <!-- Map + Activities bento (map #map div populated by Leaflet JS below) -->
   <section class="mb-32 grid grid-cols-1 lg:grid-cols-12 gap-8" id="activities">
