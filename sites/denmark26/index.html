@@ -378,5 +378,50 @@
 
 </main>
 
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  (function () {
+    const map = L.map('map', { scrollWheelZoom: false }).setView([55.875, 10.575], 11);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+
+    function pin(lat, lng, color, title, note) {
+      L.circleMarker([lat, lng], {
+        radius: 8, fillColor: color,
+        color: '#fff', weight: 2, opacity: 1, fillOpacity: 0.9
+      }).bindPopup(
+        '<strong>' + title + '</strong>' +
+        (note ? '<br><span style="font-size:0.78em;color:#555">' + note + '</span>' : '')
+      ).addTo(map);
+    }
+
+    // Ferry terminals — blue
+    pin(55.835, 10.583, '#3b82f6', 'Sælvig Harbour',          'Ferry from Aarhus · Bike pickup');
+    pin(55.821, 10.648, '#3b82f6', 'Ballen Harbour',           'Ferry to Kalundborg · Røgeriet');
+
+    // Hiking — green
+    pin(55.921, 10.532, '#16a34a', 'Nordby',                   'Village · Nordby Kro · Nordby 13');
+    pin(55.955, 10.512, '#16a34a', 'Issehoved',                'Northernmost tip · sea views');
+    pin(55.912, 10.533, '#16a34a', 'Ballebjerg',               '64m highest point · lookout tower');
+    pin(55.858, 10.657, '#16a34a', 'Stavns Fjord / Langør',    'Birdlife lagoon · seal safari');
+
+    // Food & drink — amber
+    pin(55.820, 10.649, '#f59e0b', 'Røgeriet',                 'Smoked fish · Ballen harbour');
+    pin(55.855, 10.600, '#f59e0b', 'Tranebjerg',               'Main town · Energy Academy');
+    pin(55.893, 10.568, '#f59e0b', 'Sams Island Distillery',   'Brundby · gin, rum, local snaps');
+
+    // Accommodation — purple
+    pin(55.799, 10.518, '#8b5cf6', 'Vesborg Fyr',              '1858 lighthouse apartments');
+    pin(55.875, 10.567, '#8b5cf6', 'Yduns Have',               'Organic farm cabins');
+    pin(55.897, 10.572, '#8b5cf6', 'Rum og Rooms',             'Farmhouse guesthouse · Brundby');
+    pin(55.835, 10.584, '#8b5cf6', 'Sælvigbugtens Camping',    'Glamping tent · ferry-side');
+  })();
+</script>
+
 </body>
 </html>
