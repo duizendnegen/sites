@@ -304,6 +304,78 @@
     </div>
   </section>
 
+  <!-- Map + Activities bento (map #map div populated by Leaflet JS below) -->
+  <section class="mb-32 grid grid-cols-1 lg:grid-cols-12 gap-8" id="activities">
+
+    <!-- Map -->
+    <div class="lg:col-span-7 bg-surface-container rounded-xl overflow-hidden relative min-h-[520px]">
+      <div id="map" class="absolute inset-0 w-full h-full"></div>
+      <!-- Coordinate badge -->
+      <div class="absolute top-4 left-4 bg-surface-container-lowest/90 backdrop-blur-sm p-3 shadow-sm border-l-2 border-primary z-[400]">
+        <p class="font-label text-[10px] tracking-widest uppercase mb-1">Coordinates</p>
+        <p class="font-mono text-xs">55.87° N, 10.58° E</p>
+      </div>
+      <!-- Legend -->
+      <div class="absolute bottom-4 left-4 bg-surface-container-lowest/90 backdrop-blur-sm p-3 shadow-sm z-[400] space-y-1.5">
+        <p class="font-label text-[10px] uppercase tracking-widest text-outline mb-2">Legend</p>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-blue-500 inline-block shrink-0"></span><span class="text-[10px] font-label">Ferry terminal</span></div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-green-600 inline-block shrink-0"></span><span class="text-[10px] font-label">Hiking</span></div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-amber-500 inline-block shrink-0"></span><span class="text-[10px] font-label">Food &amp; drink</span></div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-purple-500 inline-block shrink-0"></span><span class="text-[10px] font-label">Accommodation</span></div>
+      </div>
+    </div>
+
+    <!-- Activities list -->
+    <div class="lg:col-span-5 space-y-6">
+      <h2 class="font-headline text-4xl font-bold tracking-tight text-primary">Points of<br/>Interest</h2>
+
+      <div class="space-y-4">
+
+        <div class="bg-surface-container-low p-6 flex items-start gap-4">
+          <span class="material-symbols-outlined text-secondary pt-1 shrink-0">hiking</span>
+          <div>
+            <h5 class="font-headline font-bold">Nordby Bakker &amp; Issehoved</h5>
+            <p class="text-sm text-on-surface-variant mt-1">11–18km loops through glacial valleys and west coast cliffs. Ballebjerg lookout tower at 64m — the highest point on the island.</p>
+          </div>
+        </div>
+
+        <div class="bg-surface-container-low p-6 flex items-start gap-4">
+          <span class="material-symbols-outlined text-secondary pt-1 shrink-0">pedal_bike</span>
+          <div>
+            <h5 class="font-headline font-bold">Island Cycling Routes</h5>
+            <p class="text-sm text-on-surface-variant mt-1">Full island loop (~60km) or Stavns Fjord circuit. E-bikes from Ø-Hjul or Samsø Cykler at Sælvig harbour. Asparagus farm stalls en route.</p>
+          </div>
+        </div>
+
+        <div class="bg-surface-container-low p-6 flex items-start gap-4">
+          <span class="material-symbols-outlined text-secondary pt-1 shrink-0">restaurant</span>
+          <div>
+            <h5 class="font-headline font-bold">Gastronomy</h5>
+            <p class="text-sm text-on-surface-variant mt-1">Nordby Kro, Nordby 13, Røgeriet smoked fish, Samsø Madsnedkeri, Restaurant Dokken. May = peak asparagus, early strawberries, rhubarb.</p>
+          </div>
+        </div>
+
+        <div class="bg-surface-container-low p-6 flex items-start gap-4">
+          <span class="material-symbols-outlined text-secondary pt-1 shrink-0">liquor</span>
+          <div>
+            <h5 class="font-headline font-bold">Sams Island Distillery</h5>
+            <p class="text-sm text-on-surface-variant mt-1">Gin, rum, vodka and local snaps in Brundby. Founded 2017. Optional day-3 detour (~DKK 100–150/person for a tasting).</p>
+          </div>
+        </div>
+
+        <div class="bg-surface-container-low p-6 flex items-start gap-4">
+          <span class="material-symbols-outlined text-secondary pt-1 shrink-0">sailing</span>
+          <div>
+            <h5 class="font-headline font-bold">Seal Safari &amp; Stavns Fjord</h5>
+            <p class="text-sm text-on-surface-variant mt-1">Old wooden boat M/S Tunø from Langør. Stavns Fjord birdlife lagoon and the Energy Academy in Tranebjerg (~DKK 150–200).</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
 </main>
 
 </body>
