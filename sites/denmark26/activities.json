@@ -3,13 +3,13 @@
     "id": "hiking",
     "icon": "hiking",
     "title": "Nordby Bakker &amp; Issehoved",
-    "description": "Route A (18km loop): Nordby → Nordby Church → Møgelskår → west coast cliffs → Ballebjerg (64m lookout) → Pelkeshøj → Issehoved (northernmost tip) → east coast beach → Nordby. Route B (11km loop): Ballebjerg → Issehoved → east coast beach → Nordby — accessible, few short steep climbs. Lunch at Nordby village; evening at Nordby Kro or Nordby 13 brasserie."
+    "description": "Route A (18km loop): Nordby → Nordby Church → Møgelskår → west coast cliffs → Ballebjerg (64m lookout) → Pelkeshøj → Issehoved (northernmost tip) → east coast beach → Nordby.<br>Route B (11km loop): Ballebjerg → Issehoved → east coast beach → Nordby."
   },
   {
     "id": "cycling",
     "icon": "pedal_bike",
     "title": "Island Cycling Routes",
-    "description": "Suggested loop: Sælvig → Havvejen north → Langør (Stavns Fjord views, birdlife) → Nordby Hede heath → Onsbjerg → Tranebjerg → Ballen harbour. Stops: farm stalls for asparagus, Samsø Madsnedkeri, Røgeriet smoked fish at Ballen. Optional detour: Sams Island Distillery in Brundby. E-bikes from Ø-Hjul or Samsø Cykler at Sælvig harbour."
+    "description": "Sælvig → Havvejen north → Langør (Stavns Fjord views, birdlife) → Nordby Hede heath → Onsbjerg → Tranebjerg → Ballen harbour.<br>Stops: farm stalls for asparagus, Samsø Madsnedkeri, Røgeriet smoked fish at Ballen.<br>E-bikes from Ø-Hjul or Samsø Cykler at Sælvig harbour."
   },
   {
     "id": "gastronomy",
@@ -28,5 +28,11 @@
     "icon": "sailing",
     "title": "Seal Safari &amp; Stavns Fjord",
     "description": "Old wooden boat M/S Tunø from Langør. Stavns Fjord birdlife lagoon and the Energy Academy in Tranebjerg (~DKK 150–200)."
+  },
+  {
+    "id": "labyrinth",
+    "icon": "forest",
+    "title": "Samsø Labyrint",
+    "description": "World's largest permanent tree labyrinth — 60,000 m² with 5,380m of paths. Planted in willow, oak and apple. Near Nordby at M.B.Jensensvej 12. Open May–September."
   }
 ]

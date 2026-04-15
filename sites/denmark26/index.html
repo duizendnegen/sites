@@ -21,59 +21,59 @@
       theme: {
         extend: {
           colors: {
-            "on-tertiary-container":      "#d4ab7b",
-            "surface":                    "#f9faf8",
-            "outline-variant":            "#c1c8c3",
-            "primary-fixed":              "#c8ead8",
-            "primary":                    "#163428",
-            "on-error":                   "#ffffff",
-            "on-secondary-container":     "#4c6876",
-            "surface-container-highest":  "#e2e3e1",
-            "secondary-container":        "#c9e7f7",
-            "error-container":            "#ffdad6",
-            "on-secondary":               "#ffffff",
-            "surface-variant":            "#e2e3e1",
-            "tertiary-fixed-dim":         "#eabf8d",
-            "on-secondary-fixed":         "#001f2a",
-            "outline":                    "#727974",
-            "error":                      "#ba1a1a",
-            "surface-tint":               "#466557",
-            "inverse-on-surface":         "#f0f1ef",
-            "surface-container-low":      "#f3f4f2",
-            "on-primary-container":       "#99baa9",
-            "inverse-primary":            "#adcebd",
-            "on-background":              "#191c1b",
-            "surface-bright":             "#f9faf8",
-            "tertiary-fixed":             "#ffddb7",
-            "on-error-container":         "#93000a",
-            "on-primary-fixed-variant":   "#2f4d40",
-            "secondary-fixed":            "#c9e7f7",
-            "on-tertiary-fixed":          "#2a1700",
-            "on-surface-variant":         "#424844",
-            "surface-dim":                "#d9dad8",
-            "on-secondary-fixed-variant": "#2f4a57",
-            "secondary":                  "#466270",
-            "surface-container-high":     "#e7e8e6",
-            "tertiary":                   "#422904",
-            "inverse-surface":            "#2e3130",
-            "primary-fixed-dim":          "#adcebd",
-            "primary-container":          "#2d4b3e",
-            "tertiary-container":         "#5c3f18",
-            "on-surface":                 "#191c1b",
-            "surface-container-lowest":   "#ffffff",
-            "secondary-fixed-dim":        "#aecbda",
+            "primary":                    "#110E38",
+            "primary-container":          "#1c1860",
+            "primary-fixed":              "#e8ecff",
+            "primary-fixed-dim":          "#c4caf0",
             "on-primary":                 "#ffffff",
-            "surface-container":          "#edeeec",
-            "background":                 "#f9faf8",
+            "on-primary-container":       "#9DD1A7",
+            "on-primary-fixed":           "#110E38",
+            "on-primary-fixed-variant":   "#2a2770",
+            "inverse-primary":            "#9DD1A7",
+            "secondary":                  "#16a085",
+            "secondary-container":        "#c0ede4",
+            "secondary-fixed":            "#c0ede4",
+            "secondary-fixed-dim":        "#8ed4c8",
+            "on-secondary":               "#ffffff",
+            "on-secondary-container":     "#0a4f43",
+            "on-secondary-fixed":         "#001f19",
+            "on-secondary-fixed-variant": "#0d6e5c",
+            "tertiary":                   "#7c6200",
+            "tertiary-container":         "#3d3000",
+            "tertiary-fixed":             "#ffd95e",
+            "tertiary-fixed-dim":         "#e8c24a",
             "on-tertiary":                "#ffffff",
-            "on-primary-fixed":           "#012116",
-            "on-tertiary-fixed-variant":  "#5e411a"
+            "on-tertiary-container":      "#ffd95e",
+            "on-tertiary-fixed":          "#241900",
+            "on-tertiary-fixed-variant":  "#5c4800",
+            "surface":                    "#f2f6ff",
+            "surface-bright":             "#f2f6ff",
+            "surface-dim":                "#d5dce3",
+            "surface-variant":            "#e8edf8",
+            "surface-container-lowest":   "#ffffff",
+            "surface-container-low":      "#f2f6ff",
+            "surface-container":          "#e8edf8",
+            "surface-container-high":     "#dde3f0",
+            "surface-container-highest":  "#d5dce3",
+            "on-surface":                 "#110E38",
+            "on-surface-variant":         "#4a4f6a",
+            "background":                 "#f2f6ff",
+            "on-background":              "#110E38",
+            "outline":                    "#7c8099",
+            "outline-variant":            "#d5dce3",
+            "inverse-surface":            "#110E38",
+            "inverse-on-surface":         "#f2f6ff",
+            "surface-tint":               "#16a085",
+            "error":                      "#ba1a1a",
+            "on-error":                   "#ffffff",
+            "error-container":            "#ffdad6",
+            "on-error-container":         "#93000a",
           },
           borderRadius: {
-            "DEFAULT": "0.125rem",
-            "lg":      "0.25rem",
-            "xl":      "0.5rem",
-            "full":    "0.75rem"
+            "DEFAULT": "0px",
+            "lg":      "0px",
+            "xl":      "0px",
+            "full":    "0px"
           },
           fontFamily: {
             "headline": ["Manrope"],
@@ -93,19 +93,16 @@
 </head>
 <body class="bg-background text-on-surface font-body selection:bg-primary-fixed">
 
-<header class="bg-emerald-950/80 backdrop-blur-xl text-emerald-50 sticky top-0 z-50 transition-all duration-300">
+<header class="bg-[#110E38]/80 backdrop-blur-xl text-white sticky top-0 z-[1000] transition-all duration-300">
   <nav class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
-    <div class="font-headline text-xl font-bold tracking-tighter text-emerald-50">Samsø Guide</div>
+    <div class="font-headline text-xl font-bold tracking-tighter text-white">Samsø Guide</div>
     <ul class="hidden md:flex items-center gap-8 font-label tracking-tight text-sm font-bold uppercase">
-      <li><a class="text-emerald-300 border-b-2 border-amber-200 pb-1" href="#overview">Overview</a></li>
-      <li><a class="text-emerald-50/70 hover:text-emerald-50 transition-colors" href="#stays">Stays</a></li>
-      <li><a class="text-emerald-50/70 hover:text-emerald-50 transition-colors" href="#itinerary">Itinerary</a></li>
-      <li><a class="text-emerald-50/70 hover:text-emerald-50 transition-colors" href="#activities">Activities</a></li>
-      <li><a class="text-emerald-50/70 hover:text-emerald-50 transition-colors" href="#budget">Budget</a></li>
+      <li><a class="text-[#9DD1A7] border-b-2 border-[#9DD1A7] pb-1" href="#overview">Overview</a></li>
+      <li><a class="text-white/70 hover:text-white transition-colors" href="#stays">Stays</a></li>
+      <li><a class="text-white/70 hover:text-white transition-colors" href="#itinerary">Itinerary</a></li>
+      <li><a class="text-white/70 hover:text-white transition-colors" href="#activities">Activities</a></li>
+      <li><a class="text-white/70 hover:text-white transition-colors" href="#budget">Budget</a></li>
     </ul>
-    <div class="flex items-center gap-4 text-emerald-50/70">
-      <span class="material-symbols-outlined cursor-pointer">map</span>
-    </div>
   </nav>
 </header>
 
@@ -124,7 +121,7 @@
       Samsø,<br/>Denmark
     </h1>
     <p class="text-surface/60 text-base max-w-lg mb-8 font-label">
-      Berlin → Samsø → Middelfart &nbsp;·&nbsp; Public transport &nbsp;·&nbsp; Bikes on island &nbsp;·&nbsp; Outdoor focus
+      Berlin → Samsø → Middelfart
     </p>
   </div>
 </section>
@@ -134,9 +131,7 @@
   <!-- Accommodation -->
   <section class="mb-32" id="stays">
     <h2 class="font-headline text-4xl font-bold tracking-tight text-primary mb-3">Where to Stay</h2>
-    <p class="text-on-surface-variant text-sm mb-12 max-w-xl">All options for 2 people sharing. Book early — May is early season and the island is small. Bikes can be pre-booked to meet you at Sælvig harbour.</p>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4" id="accommodation-grid">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="accommodation-grid">
       <!-- Rendered by accommodation.json -->
     </div>
   </section>
@@ -148,26 +143,22 @@
         .then(function (items) {
           var grid = document.getElementById('accommodation-grid');
           grid.innerHTML = items.map(function (a) {
-            if (a.featured) {
-              return '<div class="bg-primary text-surface p-6 flex flex-col h-full border-t-2 ' + a.borderColor + ' transition-transform hover:scale-[1.02]">'
-                + '<span class="font-label text-[10px] uppercase tracking-widest text-primary-fixed-dim">' + a.location + '</span>'
-                + '<h4 class="font-headline font-bold text-lg mt-1">' + a.name + '</h4>'
-                + '<p class="text-xs text-primary-fixed-dim mt-2 flex-grow">' + a.description + '</p>'
-                + '<div class="mt-6 pt-4 border-t border-primary-container">'
-                + '<p class="font-label text-[10px] text-primary-fixed-dim">' + a.meta + '</p>'
-                + '<p class="font-headline font-bold text-tertiary-fixed mt-1">' + a.price + '</p>'
-                + '<a class="text-[10px] text-tertiary-fixed-dim underline font-label" href="' + a.url + '">' + a.urlLabel + '</a>'
-                + '</div></div>';
-            }
-            return '<div class="bg-surface-container-lowest p-6 flex flex-col h-full border-t-2 ' + a.borderColor + ' transition-transform hover:scale-[1.02]">'
+            var imgBlock = a.image
+              ? '<div class="aspect-[4/3] overflow-hidden bg-surface-container-high">'
+                + '<img src="' + a.image + '" alt="' + a.name + '" class="w-full h-full object-cover" loading="lazy" /></div>'
+              : '<div class="aspect-[4/3] bg-surface-container-high"></div>';
+
+            return '<div class="bg-surface-container-lowest flex flex-col transition-transform hover:scale-[1.02]">'
+              + imgBlock
+              + '<div class="p-6 flex flex-col flex-grow">'
               + '<span class="font-label text-[10px] uppercase tracking-widest text-outline">' + a.location + '</span>'
               + '<h4 class="font-headline font-bold text-lg mt-1">' + a.name + '</h4>'
               + '<p class="text-xs text-on-surface-variant mt-2 flex-grow">' + a.description + '</p>'
-              + '<div class="mt-6 pt-4 border-t border-outline-variant/20">'
+              + '<div class="mt-8">'
               + '<p class="font-label text-[10px] text-outline">' + a.meta + '</p>'
               + '<p class="font-headline font-bold text-primary mt-1">' + a.price + '</p>'
               + '<a class="text-[10px] text-secondary underline font-label" href="' + a.url + '">' + a.urlLabel + '</a>'
-              + '</div></div>';
+              + '</div></div></div>';
           }).join('');
         });
     })();
@@ -182,37 +173,28 @@
         <p class="mt-6 text-on-surface-variant leading-relaxed text-sm">Berlin to Middelfart — arrival by train and ferry, three nights on the island, departure south to Middelfart.</p>
       </div>
 
-      <div class="md:w-2/3 space-y-12">
+      <div class="md:w-2/3 space-y-16">
 
         <!-- Day 1 — May 10 -->
         <div class="flex gap-8">
-          <div class="flex flex-col items-center">
-            <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-headline font-bold shrink-0">10</div>
-            <div class="flex-grow w-px bg-outline-variant opacity-30 my-4"></div>
-          </div>
-          <div class="pb-8 border-b border-outline-variant/20 w-full">
-            <span class="font-label text-xs uppercase tracking-widest text-tertiary">Saturday · Arrival</span>
+          <div class="w-full">
+            <span class="font-label text-xs uppercase tracking-widest text-tertiary">Sunday · Arrival</span>
             <h3 class="font-headline text-2xl font-bold mt-1">Berlin → Samsø</h3>
             <div class="mt-3 space-y-2 text-on-surface-variant text-sm leading-relaxed">
               <p>Depart Berlin Hbf early (~06:00–07:00) by ICE/IC toward Hamburg, then Hamburg → Aarhus by train (DSB / Interrail).</p>
               <p>Aarhus → Sælvig harbour by fast ferry (Samsø Rederi express from Dokk1 pier, ~1h crossing). Ferries run roughly every 2h, 06:00–20:00; book in advance at tilsamsoe.dk.</p>
-              <p>Pick up pre-booked bikes at Sælvig harbour (Ø-Hjul e-bikes or Samsø Cykler). Bike to accommodation (~8–15km). Evening: settle in, dinner at or near accommodation.</p>
+              <p>Pick up pre-booked bikes at Sælvig harbour (Ø-Hjul e-bikes or Samsø Cykler). Bike to accommodation (~8–15km).</p>
             </div>
           </div>
         </div>
 
         <!-- Day 4 — May 13 -->
         <div class="flex gap-8">
-          <div class="flex flex-col items-center">
-            <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-headline font-bold shrink-0">13</div>
-            <div class="w-px h-8 bg-outline-variant opacity-30 my-4"></div>
-          </div>
           <div class="w-full">
-            <span class="font-label text-xs uppercase tracking-widest text-tertiary">Tuesday · Departure</span>
-            <h3 class="font-headline text-2xl font-bold mt-1">Morning Hike → Middelfart</h3>
+            <span class="font-label text-xs uppercase tracking-widest text-tertiary">Wednesday · Departure</span>
+            <h3 class="font-headline text-2xl font-bold mt-1">Samsø → Middelfart</h3>
             <div class="mt-3 space-y-2 text-on-surface-variant text-sm leading-relaxed">
-              <p>Light morning activity: beach walk, Besser Rev coastal path, or Brattingsborg forest trail.</p>
-              <p>Ferry from Sælvig → Hou (Jutland) or Ballen → Kalundborg (Zealand), then train connection south to Middelfart. Arrive by evening.</p>
+              <p>Ferry from Sælvig → Aarhus, then train connection south to Middelfart. Arrive by evening.</p>
             </div>
           </div>
         </div>
@@ -221,34 +203,27 @@
     </div>
   </section>
 
-  <!-- Map + Activities bento (map #map div populated by Leaflet JS below) -->
-  <section class="mb-32 grid grid-cols-1 lg:grid-cols-12 gap-8" id="activities">
+  <!-- Map + Activities (map #map div populated by Leaflet JS below) -->
+  <section class="mb-32" id="activities">
 
-    <!-- Map -->
-    <div class="lg:col-span-7 bg-surface-container rounded-xl relative min-h-[520px]">
-      <div id="map" class="absolute inset-0 w-full h-full" style="border-radius: inherit;"></div>
-      <!-- Coordinate badge -->
-      <div class="absolute top-4 left-4 bg-surface-container-lowest/90 backdrop-blur-sm p-3 shadow-sm border-l-2 border-primary z-[400]">
-        <p class="font-label text-[10px] tracking-widest uppercase mb-1">Coordinates</p>
-        <p class="font-mono text-xs">55.87° N, 10.58° E</p>
-      </div>
+    <!-- Map (full width) -->
+    <div class="relative h-[540px] bg-surface-container mb-16">
+      <div id="map" class="absolute inset-0 w-full h-full"></div>
       <!-- Legend -->
       <div class="absolute bottom-4 left-4 bg-surface-container-lowest/90 backdrop-blur-sm p-3 shadow-sm z-[400] space-y-1.5">
         <p class="font-label text-[10px] uppercase tracking-widest text-outline mb-2">Legend</p>
-        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-blue-500 inline-block shrink-0"></span><span class="text-[10px] font-label">Ferry terminal</span></div>
-        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-green-600 inline-block shrink-0"></span><span class="text-[10px] font-label">Hiking</span></div>
-        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-amber-500 inline-block shrink-0"></span><span class="text-[10px] font-label">Food &amp; drink</span></div>
-        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-purple-500 inline-block shrink-0"></span><span class="text-[10px] font-label">Accommodation</span></div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 bg-blue-500 inline-block shrink-0"></span><span class="text-[10px] font-label">Ferry terminal</span></div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 bg-green-600 inline-block shrink-0"></span><span class="text-[10px] font-label">Hiking</span></div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 bg-amber-500 inline-block shrink-0"></span><span class="text-[10px] font-label">Food &amp; drink</span></div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 bg-purple-500 inline-block shrink-0"></span><span class="text-[10px] font-label">Accommodation</span></div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 bg-cyan-600 inline-block shrink-0"></span><span class="text-[10px] font-label">Attraction</span></div>
       </div>
     </div>
 
-    <!-- Activities list -->
-    <div class="lg:col-span-5 space-y-6">
-      <h2 class="font-headline text-4xl font-bold tracking-tight text-primary">Points of<br/>Interest</h2>
-
-      <div class="space-y-4" id="activities-list">
-        <!-- Rendered by activities.json -->
-      </div>
+    <!-- Activities grid -->
+    <h2 class="font-headline text-4xl font-bold tracking-tight text-primary mb-8">Activities</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="activities-list">
+      <!-- Rendered by activities.json -->
     </div>
 
   </section>
@@ -273,78 +248,66 @@
 
   <!-- Budget -->
   <section class="mb-32" id="budget">
-    <div class="bg-surface-container p-12 rounded-xl">
+    <div class="bg-surface-container p-12">
       <div class="max-w-4xl mx-auto">
 
         <h2 class="font-headline text-3xl font-bold text-on-surface mb-1">Budget Estimate</h2>
-        <p class="text-on-surface-variant text-sm mb-10">Per person · DKK · May = early/low season &nbsp;·&nbsp; 1 EUR ≈ 7.5 DKK</p>
+        <p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-8">Per person · mid-range estimate · 1 EUR ≈ 7.5 DKK</p>
 
-        <!-- Travel -->
-        <h3 class="font-label text-xs uppercase tracking-widest text-on-surface-variant mb-4">Travel costs</h3>
-        <div class="overflow-x-auto mb-12">
+        <div class="overflow-x-auto">
           <table class="w-full text-left text-sm">
             <thead>
-              <tr class="border-b border-outline-variant/40">
-                <th class="py-3 font-label text-[10px] uppercase tracking-widest text-on-surface-variant pr-8">Leg</th>
-                <th class="py-3 font-label text-[10px] uppercase tracking-widest text-on-surface-variant text-right whitespace-nowrap">Per person</th>
-                <th class="py-3 font-label text-[10px] uppercase tracking-widest text-on-surface-variant pl-8">Notes</th>
+              <tr>
+                <th class="pb-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant pr-8 w-24">Category</th>
+                <th class="pb-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant pr-8">Item</th>
+                <th class="pb-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant text-right whitespace-nowrap">Per person</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-outline-variant/20">
+            <tbody>
               <tr>
-                <td class="py-3 pr-8">Berlin → Aarhus (train)</td>
-                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">DKK 600–900</td>
-                <td class="py-3 pl-8 text-on-surface-variant">Book early via DB/DSB; cheaper with Interrail</td>
-              </tr>
-              <tr>
-                <td class="py-3 pr-8">Aarhus → Sælvig (ferry)</td>
-                <td class="py-3 text-right font-headline font-bold">DKK 104</td>
-                <td class="py-3 pl-8 text-on-surface-variant">Foot passenger, high season rate</td>
+                <td class="py-3 pr-8 text-on-surface-variant text-xs">Train</td>
+                <td class="py-3 pr-8">Berlin → Aarhus</td>
+                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">€80–120</td>
               </tr>
               <tr>
-                <td class="py-3 pr-8">Exit ferry (Hou or Kalundborg)</td>
-                <td class="py-3 text-right font-headline font-bold">DKK 104</td>
-                <td class="py-3 pl-8 text-on-surface-variant">Foot passenger</td>
+                <td class="py-3 pr-8 text-on-surface-variant text-xs">Ferry</td>
+                <td class="py-3 pr-8">Aarhus → Sælvig</td>
+                <td class="py-3 text-right font-headline font-bold">€14</td>
               </tr>
               <tr>
-                <td class="py-3 pr-8">Train → Middelfart (DSB)</td>
-                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">DKK 150–250</td>
-                <td class="py-3 pl-8 text-on-surface-variant">Hou or Kalundborg → Middelfart</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Scenarios -->
-        <h3 class="font-label text-xs uppercase tracking-widest text-on-surface-variant mb-4">Total scenarios — 3 nights per person</h3>
-        <div class="overflow-x-auto">
-          <table class="w-full text-left">
-            <thead>
-              <tr class="border-b border-outline-variant/40">
-                <th class="py-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Tier</th>
-                <th class="py-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Accommodation</th>
-                <th class="py-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Bike</th>
-                <th class="py-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant text-right">Total / person</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-outline-variant/20">
-              <tr>
-                <td class="py-5 font-headline font-bold">Budget</td>
-                <td class="py-5 text-sm text-on-surface-variant">Yduns Have cabins</td>
-                <td class="py-5 text-sm text-on-surface-variant">Regular bike</td>
-                <td class="py-5 font-headline font-bold text-right whitespace-nowrap">~DKK 3,500–4,500</td>
-              </tr>
-              <tr class="bg-surface-container-high">
-                <td class="py-5 font-headline font-bold">Mid-range</td>
-                <td class="py-5 text-sm text-on-surface-variant">Nordby Kro</td>
-                <td class="py-5 text-sm text-on-surface-variant">E-bike</td>
-                <td class="py-5 font-headline font-bold text-right whitespace-nowrap">~DKK 5,500–7,000</td>
+                <td class="py-3 pr-8 text-on-surface-variant text-xs">Ferry</td>
+                <td class="py-3 pr-8">Samsø → Hou / Kalundborg</td>
+                <td class="py-3 text-right font-headline font-bold">€14</td>
               </tr>
               <tr>
-                <td class="py-5 font-headline font-bold">Comfortable</td>
-                <td class="py-5 text-sm text-on-surface-variant">Vesborg Fyr</td>
-                <td class="py-5 text-sm text-on-surface-variant">E-bike</td>
-                <td class="py-5 font-headline font-bold text-right whitespace-nowrap">~DKK 7,000–9,000</td>
+                <td class="py-3 pr-8 text-on-surface-variant text-xs">Train</td>
+                <td class="py-3 pr-8">Hou / Kalundborg → Middelfart</td>
+                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">€20–33</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-8 text-on-surface-variant text-xs">Stay</td>
+                <td class="py-3 pr-8">Nordby Kro · 3 nights</td>
+                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">~€190–250</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-8 text-on-surface-variant text-xs">Bike</td>
+                <td class="py-3 pr-8">E-bike rental · 3 days</td>
+                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">~€100–120</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-8 text-on-surface-variant text-xs">Food</td>
+                <td class="py-3 pr-8">Meals &amp; drinks · 3 days</td>
+                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">~€120–150</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-8 text-on-surface-variant text-xs">Activities</td>
+                <td class="py-3 pr-8">Excursions &amp; misc</td>
+                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">~€30–50</td>
+              </tr>
+              <tr>
+                <td class="py-4 pr-8 font-headline font-bold">Total</td>
+                <td class="py-4 pr-8 font-headline font-bold"></td>
+                <td class="py-4 text-right font-headline font-bold text-lg whitespace-nowrap">~€570–750</td>
               </tr>
             </tbody>
           </table>
@@ -356,15 +319,10 @@
 
 </main>
 
-<footer class="bg-stone-100 text-stone-800 border-t border-stone-200">
+<footer class="bg-surface text-on-surface">
   <div class="flex flex-col md:flex-row justify-between items-center px-12 py-8 w-full max-w-7xl mx-auto">
-    <div class="font-label text-xs tracking-widest uppercase text-stone-500">
+    <div class="font-label text-xs tracking-widest uppercase text-outline">
       sites.eliandor.com &mdash; denmark26
-    </div>
-    <div class="flex gap-8 mt-4 md:mt-0 font-label text-xs tracking-widest uppercase">
-      <a class="text-stone-500 hover:text-emerald-700 transition-colors" href="https://tilsamsoe.dk">Ferries</a>
-      <a class="text-stone-500 hover:text-emerald-700 transition-colors" href="https://oe-hjul.dk">Bike Rental</a>
-      <a class="text-stone-500 hover:text-emerald-700 transition-colors" href="https://visitsamsoe.dk">Tourist Info</a>
     </div>
   </div>
 </footer>
@@ -393,30 +351,33 @@
     }
 
     // Ferry terminals — blue
-    pin(55.835, 10.583, '#3b82f6', 'Sælvig Harbour',          'Ferry from Aarhus · Bike pickup');
-    pin(55.821, 10.648, '#3b82f6', 'Ballen Harbour',           'Ferry to Kalundborg · Røgeriet');
+    pin(55.8637, 10.5486, '#3b82f6', 'Sælvig Harbour',          'Ferry from Aarhus · Bike pickup');
+    pin(55.8161, 10.6401, '#3b82f6', 'Ballen Harbour',           'Ferry to Kalundborg · Røgeriet');
 
     // Hiking — green
-    pin(55.921, 10.532, '#16a34a', 'Nordby',                   'Village · Nordby Kro · Nordby 13');
-    pin(55.955, 10.512, '#16a34a', 'Issehoved',                'Northernmost tip · sea views');
-    pin(55.912, 10.533, '#16a34a', 'Ballebjerg',               '64m highest point · lookout tower');
-    pin(55.858, 10.657, '#16a34a', 'Stavns Fjord / Langør',    'Birdlife lagoon · seal safari');
+    pin(55.9646, 10.5532, '#16a34a', 'Nordby',                   'Village · Nordby Kro · Nordby 13');
+    pin(56.0020, 10.5601, '#16a34a', 'Issehoved',                'Northernmost tip · sea views');
+    pin(55.9703, 10.5276, '#16a34a', 'Ballebjerg',               '64m highest point · lookout tower');
+    pin(55.8969, 10.6676, '#16a34a', 'Stavns Fjord / Langør',    'Birdlife lagoon · seal safari');
 
     // Food & drink — amber
-    pin(55.820, 10.649, '#f59e0b', 'Røgeriet',                 'Smoked fish · Ballen harbour');
-    pin(55.855, 10.600, '#f59e0b', 'Tranebjerg',               'Main town · Energy Academy');
-    pin(55.893, 10.568, '#f59e0b', 'Sams Island Distillery',   'Brundby · gin, rum, local snaps');
+    pin(55.8159, 10.6385, '#f59e0b', 'Røgeriet',                 'Smoked fish · Ballen harbour');
+    pin(55.8326, 10.5894, '#f59e0b', 'Tranebjerg',               'Main town · Energy Academy');
+    pin(55.8327, 10.5932, '#f59e0b', 'Sams Island Distillery',   'Sygehusvej · gin, rum, local snaps');
 
     // Accommodation — purple
-    pin(55.799, 10.518, '#8b5cf6', 'Vesborg Fyr',              '1858 lighthouse apartments');
-    pin(55.875, 10.567, '#8b5cf6', 'Yduns Have',               'Organic farm cabins');
-    pin(55.897, 10.572, '#8b5cf6', 'Rum og Rooms',             'Farmhouse guesthouse · Brundby');
-    pin(55.835, 10.584, '#8b5cf6', 'Sælvigbugtens Camping',    'Glamping tent · ferry-side');
+    pin(55.7699, 10.5509, '#8b5cf6', 'Vesborg Fyr',              '1858 lighthouse apartments');
+    pin(55.8779, 10.6199, '#8b5cf6', 'Yduns Have',               'Organic farm cabins');
+    pin(55.8116, 10.6011, '#8b5cf6', 'Rum og Rooms',             'Farmhouse guesthouse · Brundby');
+    pin(55.8919, 10.5969, '#8b5cf6', 'Sælvigbugtens Camping',    'Glamping tent · Sælvig Bay');
+
+    // Attractions — cyan
+    pin(55.9718, 10.5513, '#0891b2', 'Samsø Labyrint',           "World's largest tree labyrinth · near Nordby");
   });
 </script>
 
 <!-- Tailwind safelist: classes used only in JS render functions -->
-<div class="hidden border-primary-fixed border-secondary-container border-tertiary-fixed border-outline-variant border-secondary-fixed-dim bg-primary text-surface text-primary-fixed-dim border-primary-container text-tertiary-fixed text-tertiary-fixed-dim"></div>
+<div class="hidden bg-primary text-surface text-primary-fixed-dim text-tertiary-fixed text-tertiary-fixed-dim bg-surface-container-lowest text-outline text-on-surface-variant text-primary text-secondary"></div>
 
 </body>
 </html>
