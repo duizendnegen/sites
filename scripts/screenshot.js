@@ -65,7 +65,10 @@ function serveStatic(req, res) {
   let browser;
   try {
     browser = await chromium.launch({ headless: true });
-    const page = await browser.newPage();
+    // ignoreHTTPSErrors: environment TLS traffic is intercepted by a proxy CA
+    // that Chromium doesn't trust; without this all CDN resources fail to load.
+    const context = await browser.newContext({ ignoreHTTPSErrors: true });
+    const page = await context.newPage();
     await page.setViewportSize(VIEWPORT);
 
     const url = `http://127.0.0.1:${PORT}${PAGE_PATH}`;
