@@ -5,6 +5,3 @@ cdk.out/
 *.d.ts
 !jest.config.js
 !scripts/*.js
-
-# generated artefacts
-sites/denmark26/screenshot.png
