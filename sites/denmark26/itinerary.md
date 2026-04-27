@@ -31,6 +31,12 @@
 
 | Leg | Mode | From | Depart | To | Arrive |
 |-----|------|------|--------|----|--------|
+| 1 | Ferry | Samsø | 09:00 | Aarhus | 10:00 |
+
+### Option 2
+
+| Leg | Mode | From | Depart | To | Arrive |
+|-----|------|------|--------|----|--------|
 | 1 | Ferry | Samsø | 15:15 | Aarhus | 16:15 |
 | 2 | Train | Aarhus | 17:14 | Fredericia | 18:21 |
 | 3 | Train | Fredericia | 18:30 | Middelfart | 18:37 |
