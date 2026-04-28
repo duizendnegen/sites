@@ -1,38 +1,5 @@
 [
   {
-    "id": "nordby-kro",
-    "location": "Nordby · North island",
-    "name": "Nordby Kro",
-    "description": "Classic Danish inn. Breakfast buffet with local produce, on-site restaurant and bar.",
-    "meta": "~10km from Sælvig · B&B/Inn",
-    "price": "€€",
-    "url": "https://nordbykro.dk",
-    "urlLabel": "nordbykro.dk",
-    "image": "https://files.guidedanmark.org/files/453/328382_Nordby_Kro.jpg"
-  },
-  {
-    "id": "rum-og-rooms",
-    "location": "Brundby · Mid-island",
-    "name": "Rum og Rooms",
-    "description": "Food-forward farmhouse guesthouse. Communal dinners, local organic menu, homemade breakfasts.",
-    "meta": "~8km from Sælvig · Guesthouse",
-    "price": "€€",
-    "url": "https://rumogrooms.dk",
-    "urlLabel": "rumogrooms.dk",
-    "image": "https://www.rumogrooms.dk/wp-content/uploads/2018/03/home1-e1775738411538.jpg"
-  },
-  {
-    "id": "vesborg-fyr",
-    "location": "South-west · Lighthouse",
-    "name": "Vesborg Fyr",
-    "description": "1858 lighthouse apartments. Sea views over Samsø Strait toward Funen, Zealand and Jutland.",
-    "meta": "~15km from Sælvig · Apt",
-    "price": "€€€",
-    "url": "https://vesborgfyr.dk",
-    "urlLabel": "vesborgfyr.dk",
-    "image": "https://www.vesborgfyr.dk/wp-content/uploads/2023/07/Vesborg-Fyr-Nedefra.jpg"
-  },
-  {
     "id": "yduns-have",
     "location": "Central · Near Stavns Fjord",
     "name": "Yduns Have",
@@ -42,16 +9,5 @@
     "url": "https://xn--ydunshavesams-nnb.dk/",
     "urlLabel": "ydunshavesamsø.dk",
     "image": "https://ydunshavesamsø.dk/wp-content/uploads/2023/12/hytter-stokroser-600x800-1.jpg"
-  },
-  {
-    "id": "saelvigbugtens",
-    "location": "Sælvig Bay · Glamping",
-    "name": "Sælvigbugtens",
-    "description": "19m² Lotus Belle tent on wooden platform. Box-spring beds, gas grill, fridge, private terrace.",
-    "meta": "Ferry-side",
-    "price": "€",
-    "url": "https://saelvigbugtens-camping.dk",
-    "urlLabel": "saelvigbugtens-camping.dk",
-    "image": "https://www.saelvigbugtens-camping.dk/wp-content/uploads/lotus.jpg"
   }
 ]
