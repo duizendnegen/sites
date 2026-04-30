@@ -1,15 +1,14 @@
 # denmark26 — Travel Itinerary
 
 ## Outbound — Berlin → Samsø
-**Sunday 10.05.2026**
+**Sunday 10.05.2026** · **€235 total**
 
 | Leg | Train | From | Depart | To | Arrive | Platform |
 |-----|-------|------|--------|----|--------|----------|
-| 1 | ICE 1704 | Berlin Hbf | 06:37 | Hamburg Hbf | 09:18 | Dep. 7 / Arr. 11 |
-| 2 | IC 306 | Hamburg Hbf | 09:51 | Kolding st | 12:59 | — |
-| 3 | IC 5756 | Kolding st | 13:18 | Fredericia st | 13:30 | Dep. 2 / Arr. 3 |
-| 4 | ICL 50043 | Fredericia st | 13:38 | Aarhus H | 14:43 | Dep. 4 / Arr. 4 |
-| 5 | Ferry | Aarhus | 16:30 | Samsø | 17:30 | — |
+| 1 | ICE 608 | Berlin Hbf | 05:45 | Hamburg Hbf | 08:15 | Arr. 11 |
+| 2 | ECE 398 | Hamburg Hbf | 08:53 | Kolding st | 11:44 | Dep. 11 / Arr. 2 |
+| 3 | R 2341 / R 52941 | Kolding st | 12:55 | Aarhus | 14:39 | Dep. 2 |
+| 4 | Ferry | Aarhus | 16:30 | Samsø | 17:30 | — |
 
 ---
 
@@ -23,11 +22,12 @@
 ---
 
 ## Inbound — Middelfart → Berlin
-**Sunday 17.05.2026**
+**Sunday 17.05.2026** · **€251 total**
 
 | Leg | Train | From | Depart | To | Arrive | Platform |
 |-----|-------|------|--------|----|--------|----------|
 | 1 | IC 145 | Middelfart st | 13:54 | Fredericia st | 14:02 | Dep. 3 / Arr. 4 |
-| 2 | IC 5761 | Fredericia st | 14:30 | Flensburg | 15:53 | Dep. 7 / Arr. 1 |
-| 3 | RE7 (11179) | Flensburg | 16:17 | Hamburg Hbf | 18:22 | Dep. 2 / Arr. 7 |
-| 4 | ICE 1703 | Hamburg Hbf | 18:49 | Berlin Hbf | 21:26 | Dep. 14 / Arr. 2 |
+| 2 | IC 5761 | Fredericia st | 14:30 | Flensburg | 15:53 | Dep. 6 / Arr. 1 |
+| 3 | RE7 (56919) | Flensburg | 16:17 | Hamburg-Altona | 18:13 | — |
+| 4 | S7 | Hamburg-Altona(S) | 18:22 | Hamburg Hbf (S-Bahn) | 18:33 | Dep. 2 / Arr. 4 |
+| 5 | ICE 1703 | Hamburg Hbf | 18:49 | Berlin Hbf | 21:25 | Dep. 12 / Arr. 2 |
