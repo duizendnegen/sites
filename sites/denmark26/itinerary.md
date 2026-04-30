@@ -34,12 +34,15 @@
 
 ---
 
-## Budget — Transport
+## Budget — Booked Costs
 
-| Journey | Cost (total) | Per person |
-|---------|-------------|------------|
+> 1 EUR ≈ 7.5 DKK
+
+| Item | Total | Per person |
+|------|-------|------------|
 | Berlin → Aarhus (train) | €235 | €117.50 |
-| Aarhus → Samsø (ferry) | DKK 224 | DKK 112 |
-| Samsø → Aarhus (ferry) | DKK 224 | DKK 112 |
+| Aarhus → Samsø (ferry) | DKK 224 (~€30) | DKK 112 (~€15) |
+| Samsø → Aarhus (ferry) | DKK 224 (~€30) | DKK 112 (~€15) |
 | Middelfart → Berlin (train) | €251 | €125.50 |
-| **Transport total** | **€486 + DKK 448** | **€243 + DKK 224** |
+| Accommodation · 3 nights | DKK 2,045 (~€273) | DKK 1,022.50 (~€136) |
+| **Total booked** | **~€789** | **~€394** |
