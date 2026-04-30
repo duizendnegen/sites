@@ -1,7 +1,7 @@
 # denmark26 — Travel Itinerary
 
 ## Outbound — Berlin → Samsø
-**Sunday 10.05.2026** · **€235 total**
+**Sunday 10.05.2026**
 
 | Leg | Train | From | Depart | To | Arrive | Platform |
 |-----|-------|------|--------|----|--------|----------|
@@ -22,7 +22,7 @@
 ---
 
 ## Inbound — Middelfart → Berlin
-**Sunday 17.05.2026** · **€251 total**
+**Sunday 17.05.2026**
 
 | Leg | Train | From | Depart | To | Arrive | Platform |
 |-----|-------|------|--------|----|--------|----------|
@@ -31,3 +31,15 @@
 | 3 | RE7 (56919) | Flensburg | 16:17 | Hamburg-Altona | 18:13 | — |
 | 4 | S7 | Hamburg-Altona(S) | 18:22 | Hamburg Hbf (S-Bahn) | 18:33 | Dep. 2 / Arr. 4 |
 | 5 | ICE 1703 | Hamburg Hbf | 18:49 | Berlin Hbf | 21:25 | Dep. 12 / Arr. 2 |
+
+---
+
+## Budget — Transport
+
+| Journey | Cost (total) | Per person |
+|---------|-------------|------------|
+| Berlin → Aarhus (train) | €235 | €117.50 |
+| Aarhus → Samsø (ferry) | DKK 224 | DKK 112 |
+| Samsø → Aarhus (ferry) | DKK 224 | DKK 112 |
+| Middelfart → Berlin (train) | €251 | €125.50 |
+| **Transport total** | **€486 + DKK 448** | **€243 + DKK 224** |
