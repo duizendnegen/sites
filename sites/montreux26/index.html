@@ -99,7 +99,7 @@
   <img
     alt="Lake Geneva and Lavaux vineyard terraces, Switzerland"
     class="absolute inset-0 w-full h-full object-cover opacity-80"
-    src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Lake_Geneva_Lavaux.jpg/1200px-Lake_Geneva_Lavaux.jpg"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Lake_Geneva_Lavaux.jpg/3840px-Lake_Geneva_Lavaux.jpg?utm_source=commons.wikimedia.org"
   />
   <div class="absolute inset-0 bg-gradient-to-b from-primary/40 to-primary"></div>
 
@@ -119,7 +119,7 @@
   <!-- Accommodation -->
   <section class="mb-32" id="stays">
     <h2 class="font-headline text-4xl font-bold tracking-tight text-primary mb-3">Where to Stay</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="accommodation-grid">
+    <div id="accommodation-grid">
       <!-- Rendered by accommodation.json -->
     </div>
   </section>
@@ -132,19 +132,19 @@
           var grid = document.getElementById('accommodation-grid');
           grid.innerHTML = items.map(function (a) {
             var imgBlock = a.image
-              ? '<div class="aspect-[4/3] overflow-hidden bg-surface-container-high">'
-                + '<img src="' + a.image + '" alt="' + a.name + '" class="w-full h-full object-cover" loading="lazy" /></div>'
-              : '<div class="aspect-[4/3] bg-surface-container-high"></div>';
+              ? '<div class="md:w-2/5 shrink-0 overflow-hidden bg-surface-container-high">'
+                + '<img src="' + a.image + '" alt="' + a.name + '" class="w-full h-full object-cover min-h-[300px]" loading="lazy" /></div>'
+              : '<div class="md:w-2/5 shrink-0 min-h-[300px] bg-surface-container-high"></div>';
 
-            return '<div class="bg-surface-container-lowest flex flex-col transition-transform hover:scale-[1.02]">'
+            return '<div class="bg-surface-container-lowest flex flex-col md:flex-row overflow-hidden">'
               + imgBlock
-              + '<div class="p-6 flex flex-col flex-grow">'
+              + '<div class="flex-1 p-10 md:p-16 flex flex-col justify-center">'
               + '<span class="font-label text-[10px] uppercase tracking-widest text-outline">' + a.location + '</span>'
-              + '<h4 class="font-headline font-bold text-lg mt-1">' + a.name + '</h4>'
-              + '<p class="text-xs text-on-surface-variant mt-2 flex-grow">' + a.description + '</p>'
-              + '<div class="mt-8">'
+              + '<h4 class="font-headline font-bold text-3xl mt-2">' + a.name + '</h4>'
+              + '<p class="text-sm text-on-surface-variant mt-4 leading-relaxed max-w-xl">' + a.description + '</p>'
+              + '<div class="mt-10">'
               + '<p class="font-label text-[10px] text-outline">' + a.meta + '</p>'
-              + '<p class="font-headline font-bold text-primary mt-1">' + a.price + '</p>'
+              + '<p class="font-headline font-bold text-primary text-lg mt-1">' + a.price + '</p>'
               + '<a class="text-[10px] text-secondary underline font-label" href="' + a.url + '">' + a.urlLabel + '</a>'
               + '</div></div></div>';
           }).join('');
@@ -158,7 +158,7 @@
 
       <div class="md:w-1/3">
         <h2 class="font-headline text-4xl font-bold tracking-tight text-primary">The<br/>Itinerary</h2>
-        <p class="mt-6 text-on-surface-variant leading-relaxed text-sm">Berlin to Montreux — early flight to Geneva, train along the lake, five nights of jazz and mountain air. Departure date still to be confirmed.</p>
+        <p class="mt-6 text-on-surface-variant leading-relaxed text-sm">Berlin to Montreux — early flight to Geneva, train along the lake, five nights of mountain air and jazz. Return date still to be confirmed.</p>
       </div>
 
       <div class="md:w-2/3 space-y-16">
@@ -166,26 +166,12 @@
         <!-- Day 1 — July 13 -->
         <div class="flex gap-8">
           <div class="w-full">
-            <span class="font-label text-xs uppercase tracking-widest text-tertiary">Monday 13 July · Arrival + Concert</span>
+            <span class="font-label text-xs uppercase tracking-widest text-tertiary">Monday 13 July · Arrival</span>
             <h3 class="font-headline text-2xl font-bold mt-1">Berlin → Geneva → Montreux</h3>
             <div class="mt-3 space-y-1 text-on-surface-variant text-sm leading-relaxed">
               <div>EZY Berlin BER 06:50 – Geneva GVA 08:35</div>
               <div>Train Geneva Airport – Montreux (~70 min, change at Geneva Cornavin or direct regional)</div>
               <div>Check in Hotel Lavaux, Cully (~20 min by train from Montreux)</div>
-              <p class="pt-2">Evening: Montreux Jazz Festival — Erin Lecount / Paris Paloma / Iliona. Auditorium Stravinski or Miles Davis Hall — check stage assignments at montreuxjazzfestival.com.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Day 5 — July 17 -->
-        <div class="flex gap-8">
-          <div class="w-full">
-            <span class="font-label text-xs uppercase tracking-widest text-tertiary">Friday 17 July · Concert Night</span>
-            <h3 class="font-headline text-2xl font-bold mt-1">Charles Lloyd &amp; Gregory Porter</h3>
-            <div class="mt-3 space-y-1 text-on-surface-variant text-sm leading-relaxed">
-              <div>Montreux Jazz Festival — Auditorium Stravinski</div>
-              <div>Charles Lloyd (saxophone) followed by Gregory Porter (vocals)</div>
-              <p class="pt-2">Book tickets in advance — the Stravinski sells out fast for headliner evenings.</p>
             </div>
           </div>
         </div>
@@ -194,9 +180,9 @@
         <div class="flex gap-8">
           <div class="w-full">
             <span class="font-label text-xs uppercase tracking-widest text-tertiary">Departure · TBD</span>
-            <h3 class="font-headline text-2xl font-bold mt-1">Montreux → Geneva → Berlin</h3>
+            <h3 class="font-headline text-2xl font-bold mt-1">Montreux → Berlin</h3>
             <div class="mt-3 space-y-1 text-on-surface-variant text-sm leading-relaxed">
-              <div>Return flight not yet booked. Geneva airport ~70 min from Montreux by train.</div>
+              <div>Return by train — date to be confirmed.</div>
             </div>
           </div>
         </div>
@@ -242,7 +228,12 @@
         .then(function (items) {
           var list = document.getElementById('activities-list');
           list.innerHTML = items.map(function (a) {
+            var imgBlock = a.image
+              ? '<div class="aspect-video overflow-hidden bg-surface-container-high mb-4">'
+                + '<img src="' + a.image + '" alt="' + a.title + '" class="w-full h-full object-cover" loading="lazy" /></div>'
+              : '';
             return '<div>'
+              + imgBlock
               + '<span class="font-label text-xs uppercase tracking-widest text-tertiary">' + a.label + '</span>'
               + '<h3 class="font-headline text-2xl font-bold mt-1">' + a.title + '</h3>'
               + '<div class="mt-3 space-y-1 text-on-surface-variant text-sm leading-relaxed">'
@@ -254,76 +245,6 @@
     })();
   </script>
 
-  <!-- Budget -->
-  <section class="mb-32" id="budget">
-    <div class="bg-surface-container p-12">
-      <div class="max-w-4xl mx-auto">
-
-        <h2 class="font-headline text-3xl font-bold text-on-surface mb-1">Budget Estimate</h2>
-        <p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-8">Per person · mid-range estimate · 1 CHF ≈ 1.05 EUR</p>
-
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-sm">
-            <thead>
-              <tr>
-                <th class="pb-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant pr-8 w-24">Category</th>
-                <th class="pb-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant pr-8">Item</th>
-                <th class="pb-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant text-right whitespace-nowrap">Per person</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="py-3 pr-8 text-on-surface-variant text-xs">Flight</td>
-                <td class="py-3 pr-8">Berlin BER → Geneva GVA <span class="text-on-surface-variant text-xs">(EasyJet, booked)</span></td>
-                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">TBC</td>
-              </tr>
-              <tr>
-                <td class="py-3 pr-8 text-on-surface-variant text-xs">Train</td>
-                <td class="py-3 pr-8">Geneva Airport → Montreux <span class="text-on-surface-variant text-xs">(one-way)</span></td>
-                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">~CHF 25</td>
-              </tr>
-              <tr>
-                <td class="py-3 pr-8 text-on-surface-variant text-xs">Train</td>
-                <td class="py-3 pr-8">Return flight transfer to GVA</td>
-                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">~CHF 25</td>
-              </tr>
-              <tr>
-                <td class="py-3 pr-8 text-on-surface-variant text-xs">Stay</td>
-                <td class="py-3 pr-8">Hotel Lavaux, Cully · 5 nights</td>
-                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">~CHF 900–1,200</td>
-              </tr>
-              <tr>
-                <td class="py-3 pr-8 text-on-surface-variant text-xs">Jazz</td>
-                <td class="py-3 pr-8">Montreux Jazz Festival · 2 concert evenings</td>
-                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">~CHF 100–160</td>
-              </tr>
-              <tr>
-                <td class="py-3 pr-8 text-on-surface-variant text-xs">Train</td>
-                <td class="py-3 pr-8">Rochers de Naye return</td>
-                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">~CHF 60</td>
-              </tr>
-              <tr>
-                <td class="py-3 pr-8 text-on-surface-variant text-xs">Activities</td>
-                <td class="py-3 pr-8">SUP rental, funicular, bike hire</td>
-                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">~CHF 80–120</td>
-              </tr>
-              <tr>
-                <td class="py-3 pr-8 text-on-surface-variant text-xs">Food</td>
-                <td class="py-3 pr-8">Meals &amp; drinks · 5 days</td>
-                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">~CHF 200–300</td>
-              </tr>
-              <tr>
-                <td class="py-4 pr-8 font-headline font-bold">Total</td>
-                <td class="py-4 pr-8 font-headline font-bold"></td>
-                <td class="py-4 text-right font-headline font-bold text-lg whitespace-nowrap">~CHF 1,400–1,900</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-      </div>
-    </div>
-  </section>
 
 </main>
 
