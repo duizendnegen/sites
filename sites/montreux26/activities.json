@@ -1,0 +1,72 @@
+[
+  {
+    "id": "jazz-13july",
+    "icon": "music_note",
+    "label": "Montreux Jazz Festival · Monday 13 July",
+    "title": "Erin Lecount · Paris Paloma · Iliona",
+    "items": [
+      "Erin Lecount — soulful vocals and songwriting, rising neo-soul voice",
+      "Paris Paloma — indie folk artist known for her breakout hit 'Labour'",
+      "Iliona — Belgian singer-songwriter, atmospheric indie pop",
+      "Venue: Auditorium Stravinski / Miles Davis Hall, Montreux lakefront — check montreuxjazzfestival.com for exact stage and times"
+    ]
+  },
+  {
+    "id": "jazz-17july",
+    "icon": "music_note",
+    "label": "Montreux Jazz Festival · Friday 17 July",
+    "title": "Charles Lloyd · Gregory Porter",
+    "items": [
+      "Charles Lloyd — legendary jazz saxophonist, NEA Jazz Master, six decades of groundbreaking music",
+      "Gregory Porter — Grammy-winning baritone vocalist, warm blend of jazz, soul and gospel",
+      "Venue: Auditorium Stravinski, Montreux — book tickets at montreuxjazzfestival.com"
+    ]
+  },
+  {
+    "id": "rochers-de-naye",
+    "icon": "train",
+    "label": "Cogwheel Train · Rochers de Naye",
+    "title": "Montreux → Rochers de Naye (2,042m)",
+    "items": [
+      "Rack-and-pinion railway from Montreux station up to the summit at 2,042m — one of Switzerland's most scenic mountain railways",
+      "Alpine marmot colony at the summit, panoramic views of Lake Geneva, the Bernese Alps and Mont Blanc on clear days",
+      "Alpine garden with 800+ species of mountain flowers open June–September",
+      "Journey time ~55 min each way — combine with a walk on the summit ridge. Trains run hourly from Montreux",
+      "Covered by Swiss Travel Pass; otherwise ~CHF 60 return — book at mob.ch"
+    ]
+  },
+  {
+    "id": "cycling-lavaux",
+    "icon": "pedal_bike",
+    "label": "Cycling · Lavaux Wine Route",
+    "title": "Lutry – Grandvaux – Lutry &amp; Lavaux Wine Tour",
+    "items": [
+      "Lutry–Grandvaux–Lutry loop (~25km): start in Lutry harbour, climb through terraced Chasselas vineyards via Grandvaux and Riex, descend to the lake past Cully. Rolling terrain, manageable gradients, staggering lake views throughout",
+      "Lavaux wine tour (V5262): longer route linking the UNESCO villages of Lutry, Villette, Epesses, Rivaz and Saint-Saphorin — stop for a tasting at one of the family domaines",
+      "Bikes available in Lausanne or Montreux; flat sections along the lake path are excellent for e-bikes. Avoid the narrow vineyard lanes in wet weather"
+    ]
+  },
+  {
+    "id": "funicular-paddle",
+    "icon": "landscape",
+    "label": "Funicular &amp; Paddle · Les Avants",
+    "title": "Les Avants–Sonloup Funicular &amp; SUP on the Lake",
+    "items": [
+      "Les Avants–Sonloup funicular: short but steep funicular climbing from Les Avants village (reached by train from Montreux in 25 min) up to the Sonloup plateau at 1,167m. Narcissus fields in early summer, easy walking trails on the plateau",
+      "Stand-up paddle on Lake Geneva: rent SUP boards on the Montreux Riviera waterfront. The lake is calm in the mornings — paddle past the Château de Chillon for a classic view",
+      "Château de Chillon (10 min from Montreux by foot along the lake): medieval island fortress, one of Switzerland's most visited monuments. Entry ~CHF 15"
+    ]
+  },
+  {
+    "id": "food",
+    "icon": "restaurant",
+    "label": "Food &amp; Drink · July",
+    "title": "Lakeside Tables &amp; Wine Villages",
+    "items": [
+      "Cully village — the unofficial capital of Lavaux wine. Tiny harbour, multiple cave de dégustation (wine cellars open for tastings), casual bistros serving lake fish and local Chasselas. Festival de jazz de Cully runs nearby in April but the atmosphere lingers",
+      "Lutry — postcard-perfect medieval village on the lake. Terrasse restaurants with direct lake views; try perch fillet from Lake Geneva (filet de perche) with a glass of Epesses Premier Cru",
+      "Montreux lakefront — the casino promenade has a string of restaurants and food stalls during the Jazz Festival. The Freddie Mercury statue makes a good landmark to meet",
+      "Saint-Saphorin — tiny wine village between Rivaz and Cully. The inn L'Onde (one of Switzerland's oldest) serves classical cuisine in a vaulted cellar. Worth booking ahead"
+    ]
+  }
+]
