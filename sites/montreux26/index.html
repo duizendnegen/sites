@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Montreux Jazz Festival — July 2026</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Fonts: Manrope (headline) + Inter (body) + Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary":                    "#110E38",
+            "primary-container":          "#1c1860",
+            "primary-fixed":              "#e8ecff",
+            "primary-fixed-dim":          "#c4caf0",
+            "on-primary":                 "#ffffff",
+            "on-primary-container":       "#9DD1A7",
+            "on-primary-fixed":           "#110E38",
+            "on-primary-fixed-variant":   "#2a2770",
+            "inverse-primary":            "#9DD1A7",
+            "secondary":                  "#16a085",
+            "secondary-container":        "#c0ede4",
+            "secondary-fixed":            "#c0ede4",
+            "secondary-fixed-dim":        "#8ed4c8",
+            "on-secondary":               "#ffffff",
+            "on-secondary-container":     "#0a4f43",
+            "on-secondary-fixed":         "#001f19",
+            "on-secondary-fixed-variant": "#0d6e5c",
+            "tertiary":                   "#7c6200",
+            "tertiary-container":         "#3d3000",
+            "tertiary-fixed":             "#ffd95e",
+            "tertiary-fixed-dim":         "#e8c24a",
+            "on-tertiary":                "#ffffff",
+            "on-tertiary-container":      "#ffd95e",
+            "on-tertiary-fixed":          "#241900",
+            "on-tertiary-fixed-variant":  "#5c4800",
+            "surface":                    "#f2f6ff",
+            "surface-bright":             "#f2f6ff",
+            "surface-dim":                "#d5dce3",
+            "surface-variant":            "#e8edf8",
+            "surface-container-lowest":   "#ffffff",
+            "surface-container-low":      "#f2f6ff",
+            "surface-container":          "#e8edf8",
+            "surface-container-high":     "#dde3f0",
+            "surface-container-highest":  "#d5dce3",
+            "on-surface":                 "#110E38",
+            "on-surface-variant":         "#4a4f6a",
+            "background":                 "#f2f6ff",
+            "on-background":              "#110E38",
+            "outline":                    "#7c8099",
+            "outline-variant":            "#d5dce3",
+            "inverse-surface":            "#110E38",
+            "inverse-on-surface":         "#f2f6ff",
+            "surface-tint":               "#16a085",
+            "error":                      "#ba1a1a",
+            "on-error":                   "#ffffff",
+            "error-container":            "#ffdad6",
+            "on-error-container":         "#93000a",
+          },
+          borderRadius: {
+            "DEFAULT": "0px",
+            "lg":      "0px",
+            "xl":      "0px",
+            "full":    "0px"
+          },
+          fontFamily: {
+            "headline": ["Manrope"],
+            "body":     ["Inter"],
+            "label":    ["Inter"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed">
+
+
+<!-- Hero -->
+<section class="relative w-full h-[870px] overflow-hidden bg-primary-container" id="overview">
+  <img
+    alt="Lake Geneva and Lavaux vineyard terraces, Switzerland"
+    class="absolute inset-0 w-full h-full object-cover opacity-80"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Lake_Geneva_Lavaux.jpg/1200px-Lake_Geneva_Lavaux.jpg"
+  />
+  <div class="absolute inset-0 bg-gradient-to-b from-primary/40 to-primary"></div>
+
+  <div class="relative z-10 h-full flex flex-col justify-end px-12 pb-24 max-w-7xl mx-auto">
+    <span class="font-label text-tertiary-fixed tracking-[0.2em] uppercase text-xs mb-4">July 13–?, 2026</span>
+    <h1 class="font-headline text-5xl md:text-8xl text-surface font-extrabold tracking-tighter leading-none mb-4">
+      Montreux,<br/>Switzerland
+    </h1>
+    <p class="text-surface/60 text-base max-w-lg mb-8 font-label">
+      Berlin → Geneva → Montreux
+    </p>
+  </div>
+</section>
+
+<main class="mt-16 max-w-7xl mx-auto px-12 pb-32">
+
+  <!-- Accommodation -->
+  <section class="mb-32" id="stays">
+    <h2 class="font-headline text-4xl font-bold tracking-tight text-primary mb-3">Where to Stay</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="accommodation-grid">
+      <!-- Rendered by accommodation.json -->
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      fetch('accommodation.json')
+        .then(function (r) { return r.json(); })
+        .then(function (items) {
+          var grid = document.getElementById('accommodation-grid');
+          grid.innerHTML = items.map(function (a) {
+            var imgBlock = a.image
+              ? '<div class="aspect-[4/3] overflow-hidden bg-surface-container-high">'
+                + '<img src="' + a.image + '" alt="' + a.name + '" class="w-full h-full object-cover" loading="lazy" /></div>'
+              : '<div class="aspect-[4/3] bg-surface-container-high"></div>';
+
+            return '<div class="bg-surface-container-lowest flex flex-col transition-transform hover:scale-[1.02]">'
+              + imgBlock
+              + '<div class="p-6 flex flex-col flex-grow">'
+              + '<span class="font-label text-[10px] uppercase tracking-widest text-outline">' + a.location + '</span>'
+              + '<h4 class="font-headline font-bold text-lg mt-1">' + a.name + '</h4>'
+              + '<p class="text-xs text-on-surface-variant mt-2 flex-grow">' + a.description + '</p>'
+              + '<div class="mt-8">'
+              + '<p class="font-label text-[10px] text-outline">' + a.meta + '</p>'
+              + '<p class="font-headline font-bold text-primary mt-1">' + a.price + '</p>'
+              + '<a class="text-[10px] text-secondary underline font-label" href="' + a.url + '">' + a.urlLabel + '</a>'
+              + '</div></div></div>';
+          }).join('');
+        });
+    })();
+  </script>
+
+  <!-- Itinerary -->
+  <section class="mb-32" id="itinerary">
+    <div class="flex flex-col md:flex-row gap-16">
+
+      <div class="md:w-1/3">
+        <h2 class="font-headline text-4xl font-bold tracking-tight text-primary">The<br/>Itinerary</h2>
+        <p class="mt-6 text-on-surface-variant leading-relaxed text-sm">Berlin to Montreux — early flight to Geneva, train along the lake, five nights of jazz and mountain air. Departure date still to be confirmed.</p>
+      </div>
+
+      <div class="md:w-2/3 space-y-16">
+
+        <!-- Day 1 — July 13 -->
+        <div class="flex gap-8">
+          <div class="w-full">
+            <span class="font-label text-xs uppercase tracking-widest text-tertiary">Monday 13 July · Arrival + Concert</span>
+            <h3 class="font-headline text-2xl font-bold mt-1">Berlin → Geneva → Montreux</h3>
+            <div class="mt-3 space-y-1 text-on-surface-variant text-sm leading-relaxed">
+              <div>EZY Berlin BER 06:50 – Geneva GVA 08:35</div>
+              <div>Train Geneva Airport – Montreux (~70 min, change at Geneva Cornavin or direct regional)</div>
+              <div>Check in Hotel Lavaux, Cully (~20 min by train from Montreux)</div>
+              <p class="pt-2">Evening: Montreux Jazz Festival — Erin Lecount / Paris Paloma / Iliona. Auditorium Stravinski or Miles Davis Hall — check stage assignments at montreuxjazzfestival.com.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 5 — July 17 -->
+        <div class="flex gap-8">
+          <div class="w-full">
+            <span class="font-label text-xs uppercase tracking-widest text-tertiary">Friday 17 July · Concert Night</span>
+            <h3 class="font-headline text-2xl font-bold mt-1">Charles Lloyd &amp; Gregory Porter</h3>
+            <div class="mt-3 space-y-1 text-on-surface-variant text-sm leading-relaxed">
+              <div>Montreux Jazz Festival — Auditorium Stravinski</div>
+              <div>Charles Lloyd (saxophone) followed by Gregory Porter (vocals)</div>
+              <p class="pt-2">Book tickets in advance — the Stravinski sells out fast for headliner evenings.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Departure — TBD -->
+        <div class="flex gap-8">
+          <div class="w-full">
+            <span class="font-label text-xs uppercase tracking-widest text-tertiary">Departure · TBD</span>
+            <h3 class="font-headline text-2xl font-bold mt-1">Montreux → Geneva → Berlin</h3>
+            <div class="mt-3 space-y-1 text-on-surface-variant text-sm leading-relaxed">
+              <div>Return flight not yet booked. Geneva airport ~70 min from Montreux by train.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Map + Activities (map #map div populated by Leaflet JS below) -->
+  <section class="mb-32" id="activities">
+
+    <!-- Map (full width) -->
+    <div class="relative h-[540px] bg-surface-container mb-16">
+      <div id="map" class="absolute inset-0 w-full h-full"></div>
+      <!-- Legend -->
+      <div class="absolute bottom-4 left-4 bg-surface-container-lowest/90 backdrop-blur-sm p-3 shadow-sm z-[400] space-y-1.5">
+        <p class="font-label text-[10px] uppercase tracking-widest text-outline mb-2">Legend</p>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 bg-blue-500 inline-block shrink-0"></span><span class="text-[10px] font-label">Train station</span></div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 bg-purple-500 inline-block shrink-0"></span><span class="text-[10px] font-label">Accommodation &amp; concerts</span></div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 bg-green-600 inline-block shrink-0"></span><span class="text-[10px] font-label">Hiking</span></div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 bg-amber-500 inline-block shrink-0"></span><span class="text-[10px] font-label">Food &amp; wine</span></div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 bg-cyan-600 inline-block shrink-0"></span><span class="text-[10px] font-label">Activity &amp; trains</span></div>
+      </div>
+    </div>
+
+    <!-- Activities list -->
+    <div class="flex flex-col md:flex-row gap-16">
+      <div class="md:w-1/3">
+        <h2 class="font-headline text-4xl font-bold tracking-tight text-primary">Activities</h2>
+        <p class="mt-6 text-on-surface-variant leading-relaxed text-sm">Five nights on the Riviera — jazz at Stravinski, cogwheel trains to 2,042m, cycling the UNESCO vineyard terraces, and paddling the lake at dawn.</p>
+      </div>
+      <div class="md:w-2/3 space-y-12" id="activities-list">
+        <!-- Rendered by activities.json -->
+      </div>
+    </div>
+
+  </section>
+
+  <script>
+    (function () {
+      fetch('activities.json')
+        .then(function (r) { return r.json(); })
+        .then(function (items) {
+          var list = document.getElementById('activities-list');
+          list.innerHTML = items.map(function (a) {
+            return '<div>'
+              + '<span class="font-label text-xs uppercase tracking-widest text-tertiary">' + a.label + '</span>'
+              + '<h3 class="font-headline text-2xl font-bold mt-1">' + a.title + '</h3>'
+              + '<div class="mt-3 space-y-1 text-on-surface-variant text-sm leading-relaxed">'
+              + a.items.map(function (line) { return '<div>' + line + '</div>'; }).join('')
+              + '</div>'
+              + '</div>';
+          }).join('');
+        });
+    })();
+  </script>
+
+  <!-- Budget -->
+  <section class="mb-32" id="budget">
+    <div class="bg-surface-container p-12">
+      <div class="max-w-4xl mx-auto">
+
+        <h2 class="font-headline text-3xl font-bold text-on-surface mb-1">Budget Estimate</h2>
+        <p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-8">Per person · mid-range estimate · 1 CHF ≈ 1.05 EUR</p>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm">
+            <thead>
+              <tr>
+                <th class="pb-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant pr-8 w-24">Category</th>
+                <th class="pb-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant pr-8">Item</th>
+                <th class="pb-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant text-right whitespace-nowrap">Per person</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="py-3 pr-8 text-on-surface-variant text-xs">Flight</td>
+                <td class="py-3 pr-8">Berlin BER → Geneva GVA <span class="text-on-surface-variant text-xs">(EasyJet, booked)</span></td>
+                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">TBC</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-8 text-on-surface-variant text-xs">Train</td>
+                <td class="py-3 pr-8">Geneva Airport → Montreux <span class="text-on-surface-variant text-xs">(one-way)</span></td>
+                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">~CHF 25</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-8 text-on-surface-variant text-xs">Train</td>
+                <td class="py-3 pr-8">Return flight transfer to GVA</td>
+                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">~CHF 25</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-8 text-on-surface-variant text-xs">Stay</td>
+                <td class="py-3 pr-8">Hotel Lavaux, Cully · 5 nights</td>
+                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">~CHF 900–1,200</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-8 text-on-surface-variant text-xs">Jazz</td>
+                <td class="py-3 pr-8">Montreux Jazz Festival · 2 concert evenings</td>
+                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">~CHF 100–160</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-8 text-on-surface-variant text-xs">Train</td>
+                <td class="py-3 pr-8">Rochers de Naye return</td>
+                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">~CHF 60</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-8 text-on-surface-variant text-xs">Activities</td>
+                <td class="py-3 pr-8">SUP rental, funicular, bike hire</td>
+                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">~CHF 80–120</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-8 text-on-surface-variant text-xs">Food</td>
+                <td class="py-3 pr-8">Meals &amp; drinks · 5 days</td>
+                <td class="py-3 text-right font-headline font-bold whitespace-nowrap">~CHF 200–300</td>
+              </tr>
+              <tr>
+                <td class="py-4 pr-8 font-headline font-bold">Total</td>
+                <td class="py-4 pr-8 font-headline font-bold"></td>
+                <td class="py-4 text-right font-headline font-bold text-lg whitespace-nowrap">~CHF 1,400–1,900</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-surface text-on-surface">
+  <div class="flex flex-col md:flex-row justify-between items-center px-12 py-8 w-full max-w-7xl mx-auto">
+    <div class="font-label text-xs tracking-widest uppercase text-outline">
+      sites.eliandor.com &mdash; montreux26
+    </div>
+  </div>
+</footer>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  window.addEventListener('load', function () {
+    var map = L.map('map', { scrollWheelZoom: false }).setView([46.460, 6.820], 11);
+    map.invalidateSize();
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+
+    function pin(lat, lng, color, title, note) {
+      L.circleMarker([lat, lng], {
+        radius: 8, fillColor: color,
+        color: '#fff', weight: 2, opacity: 1, fillOpacity: 0.9
+      }).bindPopup(
+        '<strong>' + title + '</strong>' +
+        (note ? '<br><span style="font-size:0.78em;color:#555">' + note + '</span>' : '')
+      ).addTo(map);
+    }
+
+    // Train station — blue
+    pin(46.4323, 6.9121, '#3b82f6', 'Montreux station',         'Train from Geneva · Rochers de Naye departure');
+
+    // Concerts + Accommodation — purple
+    pin(46.4305, 6.9158, '#8b5cf6', 'Auditorium Stravinski',    'Montreux Jazz Festival main venue');
+    pin(46.4928, 6.7258, '#8b5cf6', 'Hotel Lavaux · Cully',     '4-star design hotel · Lavaux UNESCO vineyards');
+
+    // Hiking — green
+    pin(46.4653, 6.9630, '#16a34a', 'Sonloup plateau',          'Les Avants–Sonloup funicular · easy summit walks · narcissus fields');
+
+    // Food & wine — amber
+    pin(46.5072, 6.6862, '#f59e0b', 'Lutry',                    'Medieval lakeside village · filet de perche · wine terraces');
+    pin(46.4812, 6.7762, '#f59e0b', 'Lavaux vineyards',         'UNESCO wine route · Chasselas tastings · Epesses Premier Cru');
+    pin(46.5014, 6.7211, '#f59e0b', 'Cully village',            'Wine capital of Lavaux · cave de dégustation · harbour bistros');
+    pin(46.4568, 6.8490, '#f59e0b', 'Saint-Saphorin',           "L'Onde inn · medieval wine village · vaulted cellar dining");
+
+    // Activities & trains — cyan
+    pin(46.4338, 6.9820, '#0891b2', 'Rochers de Naye (2,042m)', 'Cogwheel rack railway from Montreux · marmots · Alpine panorama');
+    pin(46.4673, 6.9378, '#0891b2', 'Les Avants',               'Train from Montreux 25 min · funicular to Sonloup');
+    pin(46.4310, 6.9130, '#0891b2', 'SUP · Montreux waterfront','Stand-up paddle on Lake Geneva · Château de Chillon view');
+  });
+</script>
+
+<!-- Tailwind safelist: classes used only in JS render functions -->
+<div class="hidden bg-primary text-surface text-primary-fixed-dim text-tertiary-fixed text-tertiary-fixed-dim bg-surface-container-lowest text-outline text-on-surface-variant text-primary text-secondary"></div>
+
+</body>
+</html>
