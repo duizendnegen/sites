@@ -2,26 +2,26 @@
   {
     "id": "jazz-13july",
     "icon": "music_note",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Montreux,_Switzerland.JPG/960px-Montreux,_Switzerland.JPG",
+    "image": "https://tgtumixhqhzrjubppeep.supabase.co/storage/v1/object/public/media/wordpress-imports/4fdb10b4-3344-41a6-b58e-f1770fdaa8b9/Erin-Lecount-MACHINE-GHOST-Furmaan-Ahmed-2-2.jpg",
     "label": "Montreux Jazz Festival · Monday 13 July",
     "title": "Erin Lecount · Paris Paloma · Iliona",
     "items": [
       "Erin Lecount — soulful vocals and songwriting, rising neo-soul voice",
       "Paris Paloma — indie folk artist known for her breakout hit 'Labour'",
       "Iliona — Belgian singer-songwriter, atmospheric indie pop",
-      "Venue: Auditorium Stravinski / Miles Davis Hall, Montreux lakefront — check montreuxjazzfestival.com for exact stage and times"
+      "Venue: Auditorium Stravinski / Miles Davis Hall, Montreux lakefront"
     ]
   },
   {
     "id": "jazz-17july",
     "icon": "music_note",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Montreux,_Switzerland.JPG/960px-Montreux,_Switzerland.JPG",
+    "image": "https://images.universal-music.de/img/assets/327/327796/992/720/gregory-porter-2013.jpg",
     "label": "Montreux Jazz Festival · Friday 17 July",
     "title": "Charles Lloyd · Gregory Porter",
     "items": [
       "Charles Lloyd — legendary jazz saxophonist, NEA Jazz Master, six decades of groundbreaking music",
       "Gregory Porter — Grammy-winning baritone vocalist, warm blend of jazz, soul and gospel",
-      "Venue: Auditorium Stravinski, Montreux — book tickets at montreuxjazzfestival.com"
+      "Venue: Auditorium Stravinski, Montreux"
     ]
   },
   {
@@ -65,7 +65,7 @@
   {
     "id": "food",
     "icon": "restaurant",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/St-Saphorin_(cropped).JPG/960px-St-Saphorin_(cropped).JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Cully_%28VD%29.jpg/960px-Cully_%28VD%29.jpg",
     "label": "Food &amp; Drink · July",
     "title": "Lakeside Tables &amp; Wine Villages",
     "items": [
