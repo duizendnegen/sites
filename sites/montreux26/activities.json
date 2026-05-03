@@ -2,6 +2,7 @@
   {
     "id": "jazz-13july",
     "icon": "music_note",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Hugh_Laurie_at_Montreux_Jazz_Festival.jpg/800px-Hugh_Laurie_at_Montreux_Jazz_Festival.jpg",
     "label": "Montreux Jazz Festival · Monday 13 July",
     "title": "Erin Lecount · Paris Paloma · Iliona",
     "items": [
@@ -14,6 +15,7 @@
   {
     "id": "jazz-17july",
     "icon": "music_note",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Hugh_Laurie_at_Montreux_Jazz_Festival.jpg/800px-Hugh_Laurie_at_Montreux_Jazz_Festival.jpg",
     "label": "Montreux Jazz Festival · Friday 17 July",
     "title": "Charles Lloyd · Gregory Porter",
     "items": [
@@ -25,6 +27,7 @@
   {
     "id": "rochers-de-naye",
     "icon": "train",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Rochers_de_Naye_view.jpg/800px-Rochers_de_Naye_view.jpg",
     "label": "Cogwheel Train · Rochers de Naye",
     "title": "Montreux → Rochers de Naye (2,042m)",
     "items": [
@@ -38,6 +41,7 @@
   {
     "id": "cycling-lavaux",
     "icon": "pedal_bike",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Vineyards-of-Lavaux.jpg/800px-Vineyards-of-Lavaux.jpg",
     "label": "Cycling · Lavaux Wine Route",
     "title": "Lutry – Grandvaux – Lutry &amp; Lavaux Wine Tour",
     "items": [
@@ -49,6 +53,7 @@
   {
     "id": "funicular-paddle",
     "icon": "landscape",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Castle_of_Chillon.JPG/800px-Castle_of_Chillon.JPG",
     "label": "Funicular &amp; Paddle · Les Avants",
     "title": "Les Avants–Sonloup Funicular &amp; SUP on the Lake",
     "items": [
@@ -60,6 +65,7 @@
   {
     "id": "food",
     "icon": "restaurant",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Lavaux_Switzerland.jpg/800px-Lavaux_Switzerland.jpg",
     "label": "Food &amp; Drink · July",
     "title": "Lakeside Tables &amp; Wine Villages",
     "items": [
