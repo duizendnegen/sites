@@ -39,8 +39,9 @@
 - Optional detour: Sams Island Distillery (gin, rum, local spirits) in Brundby
 - Evening: Ballen harbour for sunset drinks; dinner at Restaurant Dokken (classic Danish, sea views) or Røgeriet
 
-### Day 4 — Tuesday May 13: Morning hike or ride → Middelfart
-- Light morning activity (beach walk, Besser Rev coastal path, or Brattingsborg forest trail)
+### Day 4 — Tuesday May 13: Morning → Middelfart
+- Light morning activity: Stavns Fjord walk from Yduns Have (viewpoint tower, nature school) or morning kayak/SUP at Ballen (SamSurf)
+- Note: Besser Rev is closed April 1–July 15 for breeding birds — do not plan coastal reef walk in May
 - Ferry from Sælvig → Hou (Jutland) or Ballen → Kalundborg (Zealand)
   - Hou route: train south through Jutland → cross to Funen → Middelfart
   - Kalundborg route: train through Zealand/Funen → Middelfart
@@ -113,12 +114,12 @@
 
 | Route | Distance | Difficulty | Highlights |
 |---|---|---|---|
+| Nordby full loop (via Møgelskår) | ~18km | Moderate | Glacial valleys, west coast cliffs, village |
 | Ballebjerg → Issehoved loop | ~11km | Easy–moderate | Cliffs, beach, Pelkeshøj views |
-| Nordby full loop (via Møgelskår) | ~18km | Moderate | Glacial valleys, coast, village |
 | Issehoved circuit | ~5km | Easy | Northernmost tip, sea views both sides |
-| Ballebjerg path | ~5km | Easy–moderate | Highest point (64m), lookout tower, beach descent |
-| Brattingsborg forest trail | ~varies | Easy | Fallow deer, forest streams, Lyushage lighthouse |
-| Besser Rev coastal path | ~varies | Easy | Reef, birdlife, Kattegat coast |
+| Brattingsborg forest trail | ~varies | Easy | Fallow deer, forest streams, Lushage lighthouse |
+| Brattingsborg → Vesborg Fyr | ~10km linear | Easy | South coast, castle ruins, lighthouse views |
+| Ørby → Nørreskifte coastal path | ~varies | Easy | Cornfields, stone beach, bathing jetty |
 
 **Tips:**
 - Download Alltrails or pick up free hiking leaflets at VisitSamsø (Tranebjerg)
@@ -143,15 +144,15 @@
 
 | Place | Location | Type | Notes |
 |---|---|---|---|
-| Nordby Kro restaurant | Nordby | Dinner | Seasonal local menu, good wine |
+| Skipperly | Ballen harbour | Dinner | #1 TripAdvisor Samsø. Daily harbour fish + island farm veg. Terrace overlooking marina. Book: +45 86 59 10 18 |
+| Restaurant Behrnt | Ballen Badehotel | Dinner | Danish-French since 1860, local Samsø ingredients, warm bathhouse atmosphere |
+| Røgeriet | Ballen harbour | Lunch | Smoked fish, fish cakes, freshly baked bread. Eat by the pier or takeaway |
+| Samsø Madsnedkeri | Tranebjerg | Lunch/dinner | Converted barn, local street food, fish & chips. DKK 89–250. Book: 51 91 19 57 |
+| Nordby Kro | Nordby | Dinner | Seasonal inn kitchen, modern twist on local classics. Pairs with north island hiking day |
 | Nordby 13 | Nordby | Lunch/dinner | French/Danish brasserie, farm-to-table |
-| Røgeriet | Ballen harbour | Lunch | Smoked fish, harbour views |
-| Samsø Madsnedkeri | Central island | Dinner | Old barn, local ingredients, modern twist |
-| Restaurant Dokken | Ballen harbour | Dinner | Classic Danish, sea views, outdoor seating |
-| Søster Sidevind | Besser | Lunch | Local favourite, smørrebrød |
+| Søster Sidevind | Besser | Lunch | Local favourite café, smørrebrød and fresh ingredients |
 | Casa Tua | Nordby | Snack | Authentic Italian gelato, courtyard |
-| Sams Island Distillery | Brundby | Visit | Gin, rum, vodka, local snaps; founded 2017 |
-| Farm roadside stalls | Island-wide | Snack/self-catering | Asparagus, strawberries, potatoes; pay and pick up |
+| Farm roadside stalls | Island-wide | Self-catering | Asparagus (peak May), early strawberries, rhubarb, fresh herbs |
 
 **May seasonal produce:** asparagus (peak season), early strawberries, rhubarb, fresh herbs
 
