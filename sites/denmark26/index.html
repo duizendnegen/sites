@@ -225,10 +225,15 @@
       </div>
     </div>
 
-    <!-- Activities grid -->
-    <h2 class="font-headline text-4xl font-bold tracking-tight text-primary mb-8">Activities</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="activities-list">
-      <!-- Rendered by activities.json -->
+    <!-- Activities list -->
+    <div class="flex flex-col md:flex-row gap-16">
+      <div class="md:w-1/3">
+        <h2 class="font-headline text-4xl font-bold tracking-tight text-primary">Activities</h2>
+        <p class="mt-6 text-on-surface-variant leading-relaxed text-sm">Three nights on Samsø — north island hiking, south island cycling, paddling the Stavns Fjord, and the world's largest tree labyrinth.</p>
+      </div>
+      <div class="md:w-2/3 space-y-12" id="activities-list">
+        <!-- Rendered by activities.json -->
+      </div>
     </div>
 
   </section>
@@ -240,12 +245,13 @@
         .then(function (items) {
           var list = document.getElementById('activities-list');
           list.innerHTML = items.map(function (a) {
-            return '<div class="bg-surface-container-low p-6 flex items-start gap-4">'
-              + '<span class="material-symbols-outlined text-secondary pt-1 shrink-0">' + a.icon + '</span>'
-              + '<div>'
-              + '<h5 class="font-headline font-bold">' + a.title + '</h5>'
-              + '<p class="text-sm text-on-surface-variant mt-1">' + a.description + '</p>'
-              + '</div></div>';
+            return '<div>'
+              + '<span class="font-label text-xs uppercase tracking-widest text-tertiary">' + a.label + '</span>'
+              + '<h3 class="font-headline text-2xl font-bold mt-1">' + a.title + '</h3>'
+              + '<div class="mt-3 space-y-1 text-on-surface-variant text-sm leading-relaxed">'
+              + a.items.map(function (line) { return '<div>' + line + '</div>'; }).join('')
+              + '</div>'
+              + '</div>';
           }).join('');
         });
     })();
@@ -363,18 +369,19 @@
     pin(55.9646, 10.5532, '#16a34a', 'Nordby',                   'Village · Nordby Kro · Nordby 13');
     pin(56.0020, 10.5601, '#16a34a', 'Issehoved',                'Northernmost tip · sea views');
     pin(55.9703, 10.5276, '#16a34a', 'Ballebjerg',               '64m highest point · lookout tower');
-    pin(55.8969, 10.6676, '#16a34a', 'Stavns Fjord / Langør',    'Birdlife lagoon · seal safari');
+    pin(55.7748, 10.5800, '#16a34a', 'Brattingsborg Skov',        'Forest trail · fallow deer · Lushage lighthouse');
+    pin(55.7614, 10.5421, '#16a34a', 'Vesborg Fyr',              '1858 lighthouse · panoramic views · castle ruins');
 
     // Food & drink — amber
     pin(55.8159, 10.6385, '#f59e0b', 'Røgeriet',                 'Smoked fish · Ballen harbour');
-    pin(55.8326, 10.5894, '#f59e0b', 'Tranebjerg',               'Main town · Energy Academy');
-    pin(55.8327, 10.5932, '#f59e0b', 'Sams Island Distillery',   'Sygehusvej · gin, rum, local snaps');
+    pin(55.8326, 10.5894, '#f59e0b', 'Tranebjerg',               'Main town · Samsø Museum');
 
     // Accommodation — purple
     pin(55.8779, 10.6199, '#8b5cf6', 'Yduns Have',               'Organic farm cabins');
 
     // Attractions — cyan
     pin(55.9718, 10.5513, '#0891b2', 'Samsø Labyrint',           "World's largest tree labyrinth · near Nordby");
+    pin(55.8090, 10.6360, '#0891b2', 'SamSurf · Ballen',         'Kayak & SUP rental · Stavns Fjord');
   });
 </script>
 
